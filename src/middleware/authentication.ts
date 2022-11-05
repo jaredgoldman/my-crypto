@@ -11,20 +11,20 @@ const generateSecret = (token: string): string => {
   return `${env.JWT_SIGNING_SALT + t + sugar}`.padEnd(63, ' ') + '$'
 }
 
-export function expressAuthentication(
+export const expressAuthentication = (
   request: express.Request,
   securityName: string,
   scopes: string[] = []
-): Promise<DecodedJwt> {
+): Promise<DecodedJwt> => {
   if (securityName === 'jwt') {
     const token =
-      request.body.token || request.query.token || request.headers['authorization']
+      request.body.token || request.query.token || request.headers.authorization
     return new Promise(async (resolve, reject) => {
       if (!token) {
         reject(new ApiError(401, 'Unauthorized'))
       }
       try {
-        jwt.verify(token, generateSecret(token), function (err: any, decoded: any) {
+        jwt.verify(token, generateSecret(token), (err: any, decoded: any) => {
           if (err) {
             reject(new ApiError(401, 'Unauthorized', true, err))
           } else {

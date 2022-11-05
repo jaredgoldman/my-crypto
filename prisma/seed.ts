@@ -1,4 +1,5 @@
 import { prismaCli } from '../src/config/db'
+import { Logger } from '../src/config/logger'
 import { v4 as uuid } from 'uuid'
 
 async function seed() {
@@ -25,7 +26,7 @@ seed()
     await prismaCli.$disconnect()
   })
   .catch(async e => {
-    console.error(e)
+    Logger.error(e)
     await prismaCli.$disconnect()
     process.exit(1)
   })

@@ -49,5 +49,5 @@ export class Logger {
 }
 
 export const initLog = async (): Promise<string> => {
-  return `Bot is now online`
+  return 'Database connection has been established successfully.'
 }

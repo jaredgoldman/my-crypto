@@ -1,7 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express'
 import bodyParser from 'body-parser'
 import { RegisterRoutes } from '../build/routes'
-import { httpLogger } from './config/logger'
+import { httpLogger, Logger } from './config/logger'
 import swaggerUi from 'swagger-ui-express'
 import { ValidateError } from 'tsoa'
 import swagger from '../build/swagger.json'
@@ -39,7 +39,7 @@ app.use(function errorHandler(
   next: NextFunction
 ): Response | void {
   if (err instanceof ValidateError) {
-    console.warn(`Caught Validation Error for ${req.path}:`, err.fields)
+    Logger.warn(`Caught Validation Error for ${req.path}:`, err.fields)
     return res.status(422).json({
       message: 'Validation Failed',
       details: err?.fields,

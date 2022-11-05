@@ -1,4 +1,5 @@
 import { prismaCli } from './config/db'
+import { Logger, initLog } from './config/logger'
 import { app } from './app'
 import env from './config/env'
 
@@ -9,13 +10,13 @@ async function main() {
 const startServer = async () => {
   return main()
     .then(async () => {
-      console.log('Database connection has been established successfully.')
+      initLog()
       app.listen(env.port, () =>
-        console.log(`Bitbuy Stocks API listening at http://localhost:${env.port}`)
+        Logger.info(`Bitbuy Stocks API listening at http://localhost:${env.port}`)
       )
     })
     .catch(e => {
-      console.error(e)
+      Logger.error(e)
       return process.exit(1)
     })
     .finally(async () => {
