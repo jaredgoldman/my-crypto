@@ -11,7 +11,7 @@ const generateSecret = (token: string): string => {
   return `${env.JWT_SIGNING_SALT + t + sugar}`.padEnd(63, ' ') + '$'
 }
 
-export function authentication(
+export function expressAuthentication(
   request: express.Request,
   securityName: string,
   scopes: string[] = []

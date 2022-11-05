@@ -1,8 +1,7 @@
-import './config/tracer'
 import express, { Request, Response, NextFunction } from 'express'
 import bodyParser from 'body-parser'
 import { RegisterRoutes } from '../build/routes'
-import { logger } from './config/logger'
+import { httpLogger } from './config/logger'
 import swaggerUi from 'swagger-ui-express'
 import { ValidateError } from 'tsoa'
 import swagger from '../build/swagger.json'
@@ -11,7 +10,7 @@ import ApiError from './utils/ApiError'
 
 export const app = express()
 
-app.use(logger)
+app.use(httpLogger)
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))

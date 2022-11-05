@@ -1,4 +1,4 @@
-import { prismaCli } from '@src/config/db'
+import { prismaCli } from '../config/db'
 import { User } from '@prisma/client'
 import { v4 as uuid } from 'uuid'
 

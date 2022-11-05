@@ -1,4 +1,4 @@
-import { Exchange } from '../models/Exchange'
+import { Exchange } from '@prisma/client'
 import mockExchanges from '../mocks/exchangeData.json'
 import { prismaCli } from '../config/db'
 import { v4 as uuid } from 'uuid'

@@ -21,6 +21,8 @@ export class UserController extends Controller {
     const data = await this.userService.getUser(id)
     if (data) {
       return { data, message: ResponseMessage.success, statusCode: 200 }
+    } else {
+      return { message: ResponseMessage.notFound, statusCode: 404 }
     }
   }
 }

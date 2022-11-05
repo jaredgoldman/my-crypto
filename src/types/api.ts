@@ -27,4 +27,5 @@ export interface DecodedJwt {
 export enum ResponseMessage {
   success = 'success',
   error = 'error',
+  notFound = 'not found',
 }
