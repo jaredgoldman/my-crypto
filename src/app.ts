@@ -45,14 +45,17 @@ app.use(function errorHandler(
       details: err?.fields,
     })
   }
+
   if (err instanceof NotFound) {
     return res.status(404).json({
       message: err.message,
     })
   }
+
   if (err instanceof ApiError) {
     return res.status(err.statusCode).json(err.toJson())
   }
+
   if (err instanceof Error) {
     return res.status(500).json({
       message: err.message || 'Internal Server Error',
