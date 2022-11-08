@@ -11,27 +11,33 @@ datasource db {
 }
 
 model Exchange {
-  id        String     @id @db.Uuid
-  name      String
-  url       String
-  image     String
+  id    String @id @db.Uuid
+  name  String
+  url   String
+  image String
 }
 
 model User {
-  id String @id @db.Uuid
-  username String
-  email String
-  created_at     DateTime @default(now())
-  updated_at     DateTime @updatedAt
+  id         String     @id @db.Uuid
+  username   String
+  email      String
+  status     UserStatus 
+  created_at DateTime   @default(now())
+  updated_at DateTime   @updatedAt
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
 }
 
 model UserExchange {
-  id String @id @db.Uuid
-  userId String @db.Uuid
+  id         String @id @db.Uuid
+  userId     String @db.Uuid
   exchangeId String @db.Uuid
 }
 
 model UserSecrets {
-  id String @id @db.Uuid
-  secret String 
+  id     String @id @db.Uuid
+  secret String
 }
