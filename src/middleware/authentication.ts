@@ -4,13 +4,6 @@ import * as jwt from 'jsonwebtoken'
 import ApiError from '../utils/ApiError'
 import { DecodedJwt } from 'src/types/api'
 
-const generateSecret = (token: string): string => {
-  const { iat } = jwt.decode(token) as Record<string, string | number>
-  const t = Math.floor((iat as number) / 86400) * 86400
-  const sugar = env.JWT_SIGNING_SALT.split('').reverse().join('')
-  return `${env.JWT_SIGNING_SALT + t + sugar}`.padEnd(63, ' ') + '$'
-}
-
 export const expressAuthentication = (
   request: express.Request,
   securityName: string,
@@ -24,7 +17,7 @@ export const expressAuthentication = (
         reject(new ApiError(401, 'Unauthorized'))
       }
       try {
-        jwt.verify(token, generateSecret(token), (err: any, decoded: any) => {
+        jwt.verify(token, env.JWT_SIGNING_SALT, (err: any, decoded: any) => {
           if (err) {
             reject(new ApiError(401, 'Unauthorized', true, err))
           } else {
@@ -37,8 +30,8 @@ export const expressAuthentication = (
             resolve(decoded)
           }
         })
-      } catch (error) {
-        reject(new ApiError(401, 'Unauthorized', true, JSON.stringify(error)))
+      } catch (err) {
+        reject(new ApiError(401, 'Unauthorized', true, JSON.stringify(err)))
       }
     })
   }
