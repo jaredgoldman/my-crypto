@@ -1,7 +1,6 @@
 export interface Response<T> {
   data: T | null
   message: ResponseMessage
-  statusCode: number
 }
 
 export interface Paginated<T> {
@@ -13,7 +12,6 @@ export interface Paginated<T> {
 export interface PaginatedResponse<T> {
   data: Paginated<T>
   message: ResponseMessage
-  statusCode: number
 }
 
 export interface DecodedJwt {
