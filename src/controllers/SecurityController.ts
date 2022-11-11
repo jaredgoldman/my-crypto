@@ -8,6 +8,6 @@ import { Response, ResponseMessage } from '../types/api'
 export class SecurityController extends Controller {
   @Get()
   public async checkIfSecure(@Request() request: any): Promise<Response<undefined>> {
-    return { data: request.user, message: ResponseMessage.success, statusCode: 200 }
+    return { data: request.user, message: ResponseMessage.success }
   }
 }
