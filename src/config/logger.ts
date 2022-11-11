@@ -1,6 +1,10 @@
 import pino from 'pino'
 import pinoHttp from 'pino-http'
 
+const areWeTestingWithJest = () => {
+  return process.env.JEST_WORKER_ID !== undefined || process.env.NODE_ENV === 'test'
+}
+
 const pinoLogger = pino(
   {
     formatters: {
@@ -19,9 +23,11 @@ const pinoLogger = pino(
   })
 )
 
+const level = areWeTestingWithJest() ? 'silent' : 'info'
+
 export const httpLogger = pinoHttp({
   logger: pinoLogger,
-  level: process.env.PINO_LOG_LEVEL || 'info',
+  level,
   customLogLevel: (_, res, err) => {
     if (res.statusCode >= 500 || err) {
       return 'error'
