@@ -11,19 +11,29 @@ datasource db {
 }
 
 model Exchange {
-  id    String @id @db.Uuid
-  name  String
-  url   String
-  image String
+  id           String         @id @db.Uuid
+  name         String
+  url          String
+  image        String
+  UserExchange UserExchange[]
 }
 
+// TODO: Create seperate table for hashed user secrets
 model User {
-  id         String     @id @db.Uuid
-  username   String
-  email      String
-  status     UserStatus 
-  created_at DateTime   @default(now())
-  updated_at DateTime   @updatedAt
+  id        String         @id @db.Uuid
+  email     String         @unique
+  status    UserStatus
+  exchanges UserExchange[]
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+}
+
+model UserSecret {
+  id        String   @id @db.Uuid
+  userId    String   @unique @db.Uuid
+  secret    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 enum UserStatus {
@@ -32,12 +42,20 @@ enum UserStatus {
 }
 
 model UserExchange {
-  id         String @id @db.Uuid
-  userId     String @db.Uuid
-  exchangeId String @db.Uuid
+  id         String   @id @db.Uuid
+  user       User     @relation(fields: [userId], references: [id])
+  userId     String   @db.Uuid
+  exchangeId String   @db.Uuid
+  exchange   Exchange @relation(fields: [exchangeId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
 
-model UserSecrets {
-  id     String @id @db.Uuid
-  secret String
+model UserExchangeKey {
+  id         String   @id @db.Uuid
+  userId     String   @db.Uuid
+  exchangeId String   @db.Uuid
+  key        String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
