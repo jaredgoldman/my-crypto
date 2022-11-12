@@ -12,7 +12,7 @@ datasource db {
 
 model Exchange {
   id           String         @id @db.Uuid
-  name         String
+  name         String         @unique
   url          String
   image        String
   UserExchange UserExchange[]

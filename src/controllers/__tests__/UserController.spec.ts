@@ -6,20 +6,22 @@ import { prismaCli } from '../../config/db'
 import { v4 as uuid } from 'uuid'
 import bcrypt from 'bcrypt'
 
-const id = uuid()
+const id = mockAuthData.userId
+const jwt = mockAuthData.jwt
 const user = {
   email: 'test@test.com',
   password: 'test',
 }
 
 describe('POST /user', () => {
+  let newUserId = ''
   test('should return a created user', async () => {
     return await request(app)
       .post('/user')
       .send(user)
       .expect(200)
       .then(res => {
-        // store user id for later use
+        newUserId = res.body.data.user.id
         expect(res.body.data.user.email).toBe(user.email)
         expect(res.body.data.user.status).toBe(UserStatus.INACTIVE)
       })
@@ -33,6 +35,25 @@ describe('POST /user', () => {
     await prismaCli.user.delete({
       where: { email: user.email },
     })
+    await prismaCli.userSecret.delete({
+      where: { userId: newUserId },
+    })
+  })
+})
+
+describe('POST /user/delete', () => {
+  beforeAll(async () => {
+    await prismaCli.user.create({
+      data: {
+        id,
+        email: user.email,
+        status: UserStatus.ACTIVE,
+      },
+    })
+  })
+
+  test('should return a 200 status', async () => {
+    return await request(app).post(`/user/delete`).set('Authorization', jwt).expect(200)
   })
 })
 
@@ -50,7 +71,7 @@ describe('GET /user/{userId}', () => {
   test('should return the correct user', async () => {
     return await request(app)
       .get(`/user/${id}`)
-      .set('Authorization', mockAuthData.jwt)
+      .set('Authorization', jwt)
       .expect(res => {
         expect(res.body.data.id).toBe(id)
       })
@@ -65,7 +86,7 @@ describe('GET /user/{userId}', () => {
 
   afterAll(async () => {
     await prismaCli.user.delete({
-      where: { email: user.email },
+      where: { id },
     })
   })
 })
@@ -104,6 +125,9 @@ describe('POST /user/login', () => {
     await prismaCli.user.delete({
       where: { id },
     })
+    await prismaCli.userSecret.delete({
+      where: { userId: id },
+    })
   })
 })
 
@@ -120,7 +144,7 @@ describe('POST /user/logout', () => {
   test('should return a 204', async () => {
     await request(app)
       .post('/user/logout')
-      .set('Authorization', mockAuthData.jwt)
+      .set('Authorization', jwt)
       .send({
         id,
       })

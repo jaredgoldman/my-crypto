@@ -25,13 +25,12 @@ export interface UserExchangeCreateParams {
 
 @Tags('secure')
 @Security('jwt')
-@Route('user/exchange')
+@Route('user-exchange')
 export class UserExchangeController extends Controller {
-  private userService = new UserService()
   private exchangeService = new ExchangeService()
 
   @Post()
-  @SuccessResponse('200', 'OK')
+  @SuccessResponse('201', 'OK')
   public async createUserExchange(
     @Body() requestBody: UserExchangeCreateParams,
     @Request() request: Express.Request
@@ -51,6 +50,7 @@ export class UserExchangeController extends Controller {
       throw new ApiError(404, 'Exchange not found')
     }
   }
+
   @Get()
   @SuccessResponse('200', 'OK')
   public async getUserExchanges(
@@ -66,10 +66,18 @@ export class UserExchangeController extends Controller {
     )
     return { data: userExchanges, message: ResponseMessage.success }
   }
-  // Get exchange by exchange id and user id
+
   @Get('{exchangeId}')
   @SuccessResponse('200', 'OK')
-  public async getUserExchange(@Request() request: Express.Request) {
+  public async getUserExchange(
+    @Request() request: Express.Request,
+    @Path() exchangeId: string
+  ): Promise<Response<UserExchange> | void> {
     const user = (request as any).user as AuthToken
+    const userExchange = await this.exchangeService.getUserExchange(user.sub, exchangeId)
+    if (!userExchange) {
+      throw new ApiError(404, 'User exchange not found')
+    }
+    return { data: userExchange, message: ResponseMessage.success }
   }
 }

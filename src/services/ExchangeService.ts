@@ -60,6 +60,15 @@ export class ExchangeService {
     })
   }
 
+  async getUserExchange(
+    userId: string,
+    exchangeId: string
+  ): Promise<UserExchange | null> {
+    return await prismaCli.userExchange.findFirst({
+      where: { userId, exchangeId },
+    })
+  }
+
   async getUserExchanges(
     userId: string,
     page: number,

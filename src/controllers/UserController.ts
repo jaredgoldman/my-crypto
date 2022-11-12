@@ -14,6 +14,8 @@ import {
   SuccessResponse,
 } from 'tsoa'
 import ApiError from '../utils/ApiError'
+import { AuthToken } from '@src/types/client'
+import { Logger } from '../config/logger'
 
 @Route('user')
 export class UserController extends Controller {
@@ -27,6 +29,17 @@ export class UserController extends Controller {
     const user = await this.userService.createUser(requestBody)
     const token = await this.userService.generateSessionToken(user)
     return { data: { user, token }, message: ResponseMessage.success }
+  }
+
+  @Post('delete')
+  @Tags('secure')
+  @Security('jwt')
+  @SuccessResponse('200', 'Resource deleted succesfully')
+  public async deleteUser(@Request() request: Express.Request): Promise<Response<User>> {
+    const user = (request as any).user as AuthToken
+    Logger.debug(`Deleting user ${user}`)
+    const userData = await this.userService.deleteUser(user.sub)
+    return { data: userData, message: ResponseMessage.success }
   }
 
   @Get('{id}')

@@ -13,7 +13,7 @@
     "migrate:local": "prisma db push",
     "format": "prisma format",
     "lint": "tslint -c tslint.json -p tsconfig.json --fix",
-    "test": "jest --coverage --silent=false --detectOpenHandles --forceExit",
+    "test": "jest --silent=false --detectOpenHandles --forceExit",
     "test:watch": "jest --watch"
   },
   "dependencies": {
