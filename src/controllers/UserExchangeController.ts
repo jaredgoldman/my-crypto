@@ -1,5 +1,5 @@
-import { UserService } from '../services/UserService'
 import { ExchangeService } from '../services/ExchangeService'
+import { UserExchangeService } from '../services/UserExchangeService'
 import { UserExchange } from '@prisma/client'
 import { PaginatedResponse, Response, ResponseMessage } from '../types/api'
 import {
@@ -28,6 +28,7 @@ export interface UserExchangeCreateParams {
 @Route('user-exchange')
 export class UserExchangeController extends Controller {
   private exchangeService = new ExchangeService()
+  private userExchangeService = new UserExchangeService()
 
   @Post()
   @SuccessResponse('201', 'OK')
@@ -39,7 +40,7 @@ export class UserExchangeController extends Controller {
     const exchange = await this.exchangeService.get(requestBody.exchangeId)
 
     if (exchange) {
-      const userExchange = await this.exchangeService.createUserExchange(
+      const userExchange = await this.userExchangeService.createUserExchange(
         user.sub,
         exchange.id,
         requestBody.apiKey
@@ -51,6 +52,20 @@ export class UserExchangeController extends Controller {
     }
   }
 
+  @Post('delete')
+  @SuccessResponse('201', 'OK')
+  public async deleteUserExchange(
+    @Query() userId: string,
+    @Query() exchangeId: string
+  ): Promise<Response<UserExchange> | void> {
+    const deletedUser = await this.userExchangeService.deleteUserExchange(
+      userId,
+      exchangeId
+    )
+    let message = deletedUser ? ResponseMessage.success : ResponseMessage.notFound
+    return { data: deletedUser, message }
+  }
+
   @Get()
   @SuccessResponse('200', 'OK')
   public async getUserExchanges(
@@ -59,7 +74,7 @@ export class UserExchangeController extends Controller {
     @Request() request: Express.Request
   ): Promise<PaginatedResponse<UserExchange> | void> {
     const user = (request as any).user as AuthToken
-    const userExchanges = await this.exchangeService.getUserExchanges(
+    const userExchanges = await this.userExchangeService.getUserExchanges(
       user.sub,
       page,
       limit
@@ -74,7 +89,10 @@ export class UserExchangeController extends Controller {
     @Path() exchangeId: string
   ): Promise<Response<UserExchange> | void> {
     const user = (request as any).user as AuthToken
-    const userExchange = await this.exchangeService.getUserExchange(user.sub, exchangeId)
+    const userExchange = await this.userExchangeService.getUserExchange(
+      user.sub,
+      exchangeId
+    )
     if (!userExchange) {
       throw new ApiError(404, 'User exchange not found')
     }

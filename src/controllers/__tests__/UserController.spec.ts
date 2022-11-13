@@ -1,7 +1,7 @@
 import request from 'supertest'
 import { app } from 'src/app'
 import mockAuthData from '../../mocks/auth.json'
-import { UserStatus } from '@prisma/client'
+import { Status } from '@prisma/client'
 import { prismaCli } from '../../config/db'
 import { v4 as uuid } from 'uuid'
 import bcrypt from 'bcrypt'
@@ -23,7 +23,7 @@ describe('POST /user', () => {
       .then(res => {
         newUserId = res.body.data.user.id
         expect(res.body.data.user.email).toBe(user.email)
-        expect(res.body.data.user.status).toBe(UserStatus.INACTIVE)
+        expect(res.body.data.user.status).toBe(Status.INACTIVE)
       })
   })
 
@@ -47,7 +47,7 @@ describe('POST /user/delete', () => {
       data: {
         id,
         email: user.email,
-        status: UserStatus.ACTIVE,
+        status: Status.ACTIVE,
       },
     })
   })
@@ -63,7 +63,7 @@ describe('GET /user/{userId}', () => {
       data: {
         id,
         email: user.email,
-        status: UserStatus.INACTIVE,
+        status: Status.INACTIVE,
       },
     })
   })
@@ -97,7 +97,7 @@ describe('POST /user/login', () => {
       data: {
         id,
         email: user.email,
-        status: UserStatus.INACTIVE,
+        status: Status.INACTIVE,
       },
     })
     const hashedPassword = await bcrypt.hash(user.password, 10)
@@ -117,7 +117,7 @@ describe('POST /user/login', () => {
       .expect(res => {
         expect(res.body.data.token).toBeTruthy()
         expect(res.body.data.user.email).toBe(user.email)
-        expect(res.body.data.user.status).toBe(UserStatus.ACTIVE)
+        expect(res.body.data.user.status).toBe(Status.ACTIVE)
       })
   })
 
@@ -137,7 +137,7 @@ describe('POST /user/logout', () => {
       data: {
         id,
         email: user.email,
-        status: UserStatus.ACTIVE,
+        status: Status.ACTIVE,
       },
     })
   })
@@ -154,7 +154,7 @@ describe('POST /user/logout', () => {
       where: { id },
     })
 
-    expect(loggedOutUser?.status).toBe(UserStatus.INACTIVE)
+    expect(loggedOutUser?.status).toBe(Status.INACTIVE)
   })
 
   afterAll(async () => {

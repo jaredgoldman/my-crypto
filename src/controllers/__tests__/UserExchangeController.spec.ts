@@ -4,12 +4,12 @@ import { app } from 'src/app'
 import request from 'supertest'
 
 import { v4 as uuid } from 'uuid'
-import { UserStatus } from '@prisma/client'
+import { Status } from '@prisma/client'
 
 const userData = {
   id: mockAuthData.userId,
   email: 'test@test.com',
-  status: UserStatus.ACTIVE,
+  status: Status.ACTIVE,
 }
 const exchangeData = {
   id: uuid(),
@@ -140,7 +140,37 @@ describe('GET/ user-exchange/{exchangeId}', () => {
   })
 })
 
+describe('PUT /user-exchange/delete', () => {
+  beforeAll(async () => {
+    await prismaCli.userExchange.create({
+      data: userExchangeData,
+    })
+  })
+
+  test('should delete a user exchange', async () => {
+    return await request(app)
+      .post(
+        `/user-exchange/delete?exchangeId=${userExchangeData.exchangeId}&userId=${userExchangeData.userId}`
+      )
+      .set('Authorization', `${mockAuthData.jwt}`)
+      .expect(201)
+      .expect(res => {
+        expect(res.body.data.id).toEqual(userExchangeData.id)
+        expect(res.body.data.userId).toEqual(userExchangeData.userId)
+        expect(res.body.data.exchangeId).toEqual(userExchangeData.exchangeId)
+      })
+  })
+})
+
 afterAll(async () => {
+  await prismaCli.userExchangeKey.delete({
+    where: {
+      userId_exchangeId: {
+        userId: mockAuthData.userId,
+        exchangeId: exchangeData.id,
+      },
+    },
+  })
   await prismaCli.user.delete({
     where: {
       id: userData.id,

@@ -11,51 +11,66 @@ datasource db {
 }
 
 model Exchange {
-  id           String         @id @db.Uuid
-  name         String         @unique
-  url          String
-  image        String
-  UserExchange UserExchange[]
+  id              String            @id @db.Uuid
+  name            String            @unique
+  url             String
+  image           String
+  status          Status            @default(ACTIVE)
+  userExchanges   UserExchange[]
+  UserExchangeKey UserExchangeKey[]
 }
 
 // TODO: Create seperate table for hashed user secrets
 model User {
-  id        String         @id @db.Uuid
-  email     String         @unique
-  status    UserStatus
-  exchanges UserExchange[]
-  createdAt DateTime       @default(now())
-  updatedAt DateTime       @updatedAt
+  id              String            @id @db.Uuid
+  email           String            @unique
+  status          Status            @default(ACTIVE)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  userExchanges   UserExchange[]
+  UserExchangeKey UserExchangeKey[]
 }
 
 model UserSecret {
   id        String   @id @db.Uuid
   userId    String   @unique @db.Uuid
   secret    String
+  status    Status   @default(ACTIVE)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-enum UserStatus {
+enum Status {
   ACTIVE
   INACTIVE
 }
 
 model UserExchange {
-  id         String   @id @db.Uuid
-  user       User     @relation(fields: [userId], references: [id])
-  userId     String   @db.Uuid
-  exchangeId String   @db.Uuid
-  exchange   Exchange @relation(fields: [exchangeId], references: [id])
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id                String           @id @db.Uuid
+  key               UserExchangeKey? @relation(fields: [userExchangeKeyId], references: [id])
+  userExchangeKeyId String?          @db.Uuid
+  User              User             @relation(fields: [userId], references: [id])
+  userId            String           @db.Uuid
+  exchange          Exchange         @relation(fields: [exchangeId], references: [id])
+  exchangeId        String           @db.Uuid
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+  status            Status           @default(ACTIVE)
+
+  @@unique([userId, exchangeId])
 }
 
 model UserExchangeKey {
-  id         String   @id @db.Uuid
-  userId     String   @db.Uuid
-  exchangeId String   @db.Uuid
-  key        String
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id           String         @id @db.Uuid
+  user         User           @relation(fields: [userId], references: [id])
+  userId       String         @db.Uuid
+  exchange     Exchange       @relation(fields: [exchangeId], references: [id])
+  exchangeId   String         @db.Uuid
+  key          String
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  status       Status         @default(ACTIVE)
+  UserExchange UserExchange[]
+
+  @@unique([userId, exchangeId])
 }

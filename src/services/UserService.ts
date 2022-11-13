@@ -1,5 +1,5 @@
 import { prismaCli } from '../config/db'
-import { User, UserStatus } from '@prisma/client'
+import { User, Status } from '@prisma/client'
 import { v4 as uuid } from 'uuid'
 import jwt from 'jsonwebtoken'
 import env from '../config/env'
@@ -27,7 +27,7 @@ export class UserService {
       data: {
         id: uuid(),
         email: params.email,
-        status: UserStatus.INACTIVE,
+        status: Status.INACTIVE,
       },
     })
 
@@ -80,7 +80,7 @@ export class UserService {
         // update user status and return access token
         const user = await prismaCli.user.update({
           where: { id: maybeUser.id },
-          data: { status: UserStatus.ACTIVE },
+          data: { status: Status.ACTIVE },
         })
         const token = await this.generateSessionToken(user)
         return { token, user }
@@ -95,7 +95,7 @@ export class UserService {
   async logout(id: string): Promise<void> {
     await prismaCli.user.update({
       where: { id },
-      data: { status: UserStatus.INACTIVE },
+      data: { status: Status.INACTIVE },
     })
   }
 }
