@@ -11,20 +11,22 @@ datasource db {
 }
 
 model Exchange {
-  id              String            @id @db.Uuid
+  id              String            @id @default(uuid()) @db.Uuid
   name            String            @unique
   url             String
   image           String
   status          Status            @default(ACTIVE)
   userExchanges   UserExchange[]
   UserExchangeKey UserExchangeKey[]
+  Transaction     Transaction[]
 }
 
 // TODO: Create seperate table for hashed user secrets
 model User {
-  id              String            @id @db.Uuid
+  id              String            @id @default(uuid()) @db.Uuid
   email           String            @unique
-  status          Status            @default(ACTIVE)
+  name            String
+  status          Status            @default(INACTIVE)
   createdAt       DateTime          @default(now())
   updatedAt       DateTime          @updatedAt
   userExchanges   UserExchange[]
@@ -32,7 +34,7 @@ model User {
 }
 
 model UserSecret {
-  id        String   @id @db.Uuid
+  id        String   @id @default(uuid())
   userId    String   @unique @db.Uuid
   secret    String
   status    Status   @default(ACTIVE)
@@ -46,31 +48,60 @@ enum Status {
 }
 
 model UserExchange {
-  id                String           @id @db.Uuid
-  key               UserExchangeKey? @relation(fields: [userExchangeKeyId], references: [id])
-  userExchangeKeyId String?          @db.Uuid
-  User              User             @relation(fields: [userId], references: [id])
-  userId            String           @db.Uuid
-  exchange          Exchange         @relation(fields: [exchangeId], references: [id])
-  exchangeId        String           @db.Uuid
-  createdAt         DateTime         @default(now())
-  updatedAt         DateTime         @updatedAt
-  status            Status           @default(ACTIVE)
-
-  @@unique([userId, exchangeId])
+  id                String          @id @default(uuid()) @db.Uuid
+  userExchangeKey   UserExchangeKey @relation(fields: [userExchangeKeyId], references: [id])
+  userExchangeKeyId String          @unique @db.Uuid
+  User              User            @relation(fields: [userId], references: [id])
+  userId            String          @db.Uuid
+  exchange          Exchange        @relation(fields: [exchangeId], references: [id])
+  exchangeId        String          @db.Uuid
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+  status            Status          @default(ACTIVE)
+  Transaction       Transaction[]
 }
 
 model UserExchangeKey {
-  id           String         @id @db.Uuid
-  user         User           @relation(fields: [userId], references: [id])
-  userId       String         @db.Uuid
-  exchange     Exchange       @relation(fields: [exchangeId], references: [id])
-  exchangeId   String         @db.Uuid
+  id           String        @id @default(uuid()) @db.Uuid
+  user         User          @relation(fields: [userId], references: [id])
+  userId       String        @db.Uuid
+  exchange     Exchange      @relation(fields: [exchangeId], references: [id])
+  exchangeId   String        @db.Uuid
   key          String
-  createdAt    DateTime       @default(now())
-  updatedAt    DateTime       @updatedAt
-  status       Status         @default(ACTIVE)
-  UserExchange UserExchange[]
+  keyIv        String
+  secret       String
+  secretIv     String
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  status       Status        @default(ACTIVE)
+  userExchange UserExchange?
+}
 
-  @@unique([userId, exchangeId])
+model Transaction {
+  id              String          @id @default(uuid()) @db.Uuid
+  userExchange    UserExchange    @relation(fields: [userExchangeId], references: [id])
+  userExchangeId  String          @db.Uuid
+  exchange        Exchange        @relation(fields: [exchangeId], references: [id])
+  exchangeId      String          @db.Uuid
+  type            TransactionType
+  amount          Float
+  currency        String
+  fee             Float
+  feeCurrency     String
+  status          Status          @default(ACTIVE)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  externalId      String
+  externalData    Json
+  externalStatus  String
+  externalMessage String
+
+  @@unique([userExchangeId, externalId])
+}
+
+enum TransactionType {
+  DEPOSIT
+  WITHDRAWAL
+  TRADE
+  TRANSFER
 }
