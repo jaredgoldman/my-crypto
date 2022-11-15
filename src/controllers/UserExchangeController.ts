@@ -16,14 +16,15 @@ import {
   SuccessResponse,
 } from 'tsoa'
 import ApiError from '../utils/ApiError'
-import { AuthToken } from '@src/types/client'
+import { AuthToken } from '../types/client'
 
 export interface UserExchangeCreateParams {
   exchangeId: string
   apiKey: string
+  apiSecret: string
 }
 
-@Tags('secure')
+@Tags('user-exchange')
 @Security('jwt')
 @Route('user-exchange')
 export class UserExchangeController extends Controller {
@@ -32,7 +33,7 @@ export class UserExchangeController extends Controller {
 
   @Post()
   @SuccessResponse('201', 'OK')
-  public async createUserExchange(
+  public async create(
     @Body() requestBody: UserExchangeCreateParams,
     @Request() request: Express.Request
   ): Promise<Response<UserExchange> | void> {
@@ -40,10 +41,11 @@ export class UserExchangeController extends Controller {
     const exchange = await this.exchangeService.get(requestBody.exchangeId)
 
     if (exchange) {
-      const userExchange = await this.userExchangeService.createUserExchange(
+      const userExchange = await this.userExchangeService.create(
         user.sub,
         exchange.id,
-        requestBody.apiKey
+        requestBody.apiKey,
+        requestBody.apiSecret
       )
 
       return { data: userExchange, message: ResponseMessage.success }
@@ -54,48 +56,41 @@ export class UserExchangeController extends Controller {
 
   @Post('delete')
   @SuccessResponse('201', 'OK')
-  public async deleteUserExchange(
+  public async delete(
     @Query() userId: string,
     @Query() exchangeId: string
-  ): Promise<Response<UserExchange> | void> {
-    const deletedUser = await this.userExchangeService.deleteUserExchange(
-      userId,
-      exchangeId
-    )
-    let message = deletedUser ? ResponseMessage.success : ResponseMessage.notFound
-    return { data: deletedUser, message }
+  ): Promise<Response<UserExchange | undefined>> {
+    let data: UserExchange | undefined
+    let message: ResponseMessage = ResponseMessage.success
+    const userExchange = await this.userExchangeService.get(userId, exchangeId)
+    if (userExchange) {
+      const deletedUserExchange = await this.userExchangeService.delete(userExchange?.id)
+      message = deletedUserExchange ? ResponseMessage.success : ResponseMessage.notFound
+    }
+    return { data, message }
   }
 
   @Get()
   @SuccessResponse('200', 'OK')
-  public async getUserExchanges(
+  public async getAll(
     @Query('page') page: number = 0,
     @Query('limit') limit: number = 10,
     @Request() request: Express.Request
   ): Promise<PaginatedResponse<UserExchange> | void> {
     const user = (request as any).user as AuthToken
-    const userExchanges = await this.userExchangeService.getUserExchanges(
-      user.sub,
-      page,
-      limit
-    )
+    const userExchanges = await this.userExchangeService.getAll(user.sub, page, limit)
     return { data: userExchanges, message: ResponseMessage.success }
   }
 
   @Get('{exchangeId}')
   @SuccessResponse('200', 'OK')
-  public async getUserExchange(
+  public async get(
     @Request() request: Express.Request,
     @Path() exchangeId: string
   ): Promise<Response<UserExchange> | void> {
     const user = (request as any).user as AuthToken
-    const userExchange = await this.userExchangeService.getUserExchange(
-      user.sub,
-      exchangeId
-    )
-    if (!userExchange) {
-      throw new ApiError(404, 'User exchange not found')
-    }
+    const userExchange = await this.userExchangeService.get(user.sub, exchangeId)
+
     return { data: userExchange, message: ResponseMessage.success }
   }
 }

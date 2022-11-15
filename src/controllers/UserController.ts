@@ -14,19 +14,19 @@ import {
   SuccessResponse,
 } from 'tsoa'
 import ApiError from '../utils/ApiError'
-import { AuthToken } from '@src/types/client'
-import { Logger } from '../config/logger'
+import { AuthToken } from '../types/client'
 
 @Route('user')
+@Tags('user')
 export class UserController extends Controller {
   private userService = new UserService()
 
   @Post()
   @SuccessResponse('200', 'OK')
-  public async createUser(
+  public async create(
     @Body() requestBody: UserCreateParams
   ): Promise<Response<{ user: User; token: string }>> {
-    const user = await this.userService.createUser(requestBody)
+    const user = await this.userService.create(requestBody)
     const token = await this.userService.generateSessionToken(user)
     return { data: { user, token }, message: ResponseMessage.success }
   }
@@ -35,10 +35,9 @@ export class UserController extends Controller {
   @Tags('secure')
   @Security('jwt')
   @SuccessResponse('200', 'Resource deleted succesfully')
-  public async deleteUser(@Request() request: Express.Request): Promise<Response<User>> {
+  public async delete(@Request() request: Express.Request): Promise<Response<User>> {
     const user = (request as any).user as AuthToken
-    Logger.debug(`Deleting user ${user}`)
-    const userData = await this.userService.deleteUser(user.sub)
+    const userData = await this.userService.delete(user.sub)
     return { data: userData, message: ResponseMessage.success }
   }
 
@@ -46,8 +45,8 @@ export class UserController extends Controller {
   @Tags('secure')
   @Security('jwt')
   @SuccessResponse('200', 'OK')
-  public async getUser(@Path('id') id: string) {
-    const data = await this.userService.getUser(id)
+  public async get(@Path('id') id: string) {
+    const data = await this.userService.get(id)
     if (data) {
       return { data, message: ResponseMessage.success }
     }
@@ -55,21 +54,24 @@ export class UserController extends Controller {
   }
 
   @Post('login')
-  @Security('login')
   @SuccessResponse('200', 'OK')
   public async login(
-    @Request() request: Express.Request
+    @Body() requestBody: { email: string; password: string }
   ): Promise<Response<{ token: string; user: User }>> {
-    const userData = (request as any).user as { token: string; user: User }
-    return { data: userData, message: ResponseMessage.success }
+    const loggedInUser = await this.userService.login(
+      requestBody.email,
+      requestBody.password
+    )
+    return { data: loggedInUser, message: ResponseMessage.success }
   }
 
   @Post('logout')
   @Tags('secure')
   @Security('jwt')
   @SuccessResponse('204', 'No Content')
-  public async logout(@Body() requestBody: { id: string }): Promise<Response<undefined>> {
-    await this.userService.logout(requestBody.id)
+  public async logout(@Request() request: Express.Request): Promise<Response<undefined>> {
+    const user = (request as any).user as AuthToken
+    await this.userService.logout(user.sub)
     return { data: undefined, message: ResponseMessage.success }
   }
 }

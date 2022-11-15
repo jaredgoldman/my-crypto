@@ -1,7 +1,7 @@
 import { Controller, Get, Route, Security, SuccessResponse, Tags, Request } from 'tsoa'
 import { Response, ResponseMessage } from '../types/api'
 
-@Tags('secure')
+@Tags('security')
 @Route('secure')
 @Security('jwt')
 @SuccessResponse('200', 'OK')

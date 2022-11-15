@@ -6,15 +6,16 @@ import {
   Post,
   Query,
   Route,
-  Security,
   SuccessResponse,
+  Tags,
 } from 'tsoa'
 import { Exchange } from '@prisma/client'
 import { ExchangeService, ExchangeCreationParams } from '../services/ExchangeService'
 import { PaginatedResponse, Response, ResponseMessage } from '../types/api'
 
 @Route('exchanges')
-@Security('jwt')
+@Tags('exchange')
+// TODO: make this service accessible by only admins
 export class ExchangeController extends Controller {
   private exchangeService = new ExchangeService()
   @Get()

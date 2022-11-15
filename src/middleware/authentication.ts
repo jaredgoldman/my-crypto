@@ -34,14 +34,14 @@ export const expressAuthentication = (
         })
       }
 
-      if (securityName === 'login') {
-        const userService = new UserService()
-        const email =
-          request.body.email || request.query.email || request.headers['x-email']
-        const password =
-          request.body.password || request.query.password || request.headers['x-password']
-        resolve(await userService.login(email, password))
-      }
+      // if (securityName === 'login') {
+      //   const userService = new UserService()
+      //   const email =
+      //     request.body.email || request.query.email || request.headers['x-email']
+      //   const password =
+      //     request.body.password || request.query.password || request.headers['x-password']
+      //   resolve(await userService.login(email, password))
+      // }
     } catch (error) {
       reject(new ApiError(401, 'Unauthorized', true, JSON.stringify(error)))
     }
