@@ -8,20 +8,24 @@
     "email": "jaredgoldmandev@gmail.com"
   },
   "scripts": {
-    "dev": "yarn migrate:local && concurrently  \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
+    "dev": "yarn seed && yarn migrate:local && concurrently  \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
     "build": "yarn migrate:local && tsoa spec-and-routes && tsc",
     "migrate:local": "prisma db push",
     "format": "prisma format",
     "lint": "tslint -c tslint.json -p tsconfig.json --fix",
     "test": "jest --silent=false --detectOpenHandles --forceExit",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "seed": "ts-node prisma/seed.ts",
+    "reset": "prisma migrate reset && yarn build"
   },
   "dependencies": {
+    "@ngneat/falso": "^6.1.0",
     "@prisma/client": "^4.6.0",
     "@types/jsonwebtoken": "^8.5.9",
     "@types/supertest": "^2.0.12",
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.1",
+    "ccxt": "^2.1.73",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^8.5.1",
