@@ -1,10 +1,6 @@
 import pino from 'pino'
 import pinoHttp from 'pino-http'
 
-const areWeTestingWithJest = () => {
-  return process.env.JEST_WORKER_ID !== undefined || process.env.NODE_ENV === 'test'
-}
-
 const pinoLogger = pino(
   {
     formatters: {
@@ -22,6 +18,10 @@ const pinoLogger = pino(
     },
   })
 )
+
+const areWeTestingWithJest = () => {
+  return process.env.JEST_WORKER_ID !== undefined || process.env.NODE_ENV === 'test'
+}
 
 const level = areWeTestingWithJest() ? 'silent' : 'info'
 
