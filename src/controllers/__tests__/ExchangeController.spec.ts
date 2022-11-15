@@ -2,75 +2,67 @@ import request from 'supertest'
 import { prismaCli } from '../../config/db'
 import mockAuthData from '../../mocks/auth.json'
 import { app } from '../../app'
-import { v4 as uuid } from 'uuid'
+import { ExchangeService } from '../../services/ExchangeService'
+
+const exchangeService = new ExchangeService()
 
 describe('GET /exchange', () => {
+  let newExchangeId = ''
   beforeAll(async () => {
-    await prismaCli.exchange.createMany({
-      data: [
-        {
-          id: uuid(),
-          name: 'testExchange1',
-          url: 'https://test.com',
-          image: 'https://test.com/image.png',
-        },
-        {
-          id: uuid(),
-          name: 'testExchange2',
-          url: 'https://test.com',
-          image: 'https://test.com/image.png',
-        },
-      ],
+    const newExchage = await exchangeService.create({
+      name: 'Test Exchange',
+      url: 'https://test.com',
+      image: 'https://test.exchange/image.png',
     })
+    newExchangeId = newExchage.id
   })
 
   // TODO: Will break when actual exchanges are added
-  test('should return two exchanges', () => {
+  test('should return two exchanges', async () => {
+    const exchangeNumber = await prismaCli.exchange.count()
     return request(app)
       .get('/exchanges')
       .set('Authorization', mockAuthData.jwt)
       .expect(res => {
-        expect(res.body.data.data.length).toBe(2)
+        expect(res.body.data.data.length).toBe(exchangeNumber)
       })
   })
 
   afterAll(async () => {
-    await prismaCli.exchange.deleteMany({
-      where: { url: 'https://test.com' },
-    })
+    await exchangeService.delete(newExchangeId)
   })
 })
 
 describe('GET /exchange/:id', () => {
-  const id = uuid()
+  let newExchangeId = ''
   beforeAll(async () => {
-    await prismaCli.exchange.create({
-      data: {
-        id: id,
-        name: 'testExchange',
-        url: 'https://test.com',
-        image: 'https://test.com/image.png',
-      },
+    const exchange = await exchangeService.create({
+      name: 'Test Exchange',
+      url: 'https://test.com',
+      image: 'https://test.exchange/image.png',
     })
+    newExchangeId = exchange.id
   })
 
   test('should return an exchange', () => {
     return request(app)
-      .get(`/exchanges/${id}`)
+      .get(`/exchanges/${newExchangeId}`)
       .set('Authorization', mockAuthData.jwt)
       .expect(res => {
-        expect(res.body.data.id).toBe(id)
+        expect(res.body.data.id).toBe(newExchangeId)
+        expect(res.body.data.name).toBe('Test Exchange')
+        expect(res.body.data.url).toBe('https://test.com')
+        expect(res.body.data.image).toBe('https://test.exchange/image.png')
       })
   })
 
   afterAll(async () => {
-    await prismaCli.exchange.delete({
-      where: { id },
-    })
+    await exchangeService.delete(newExchangeId)
   })
 })
 
 describe('POST /exchange', () => {
+  let newExchangeId = ''
   test('should create an exchange', () => {
     return request(app)
       .post('/exchanges')
@@ -81,12 +73,11 @@ describe('POST /exchange', () => {
         image: 'https://test.com/image.png',
       })
       .expect(res => {
+        newExchangeId = res.body.data.id
         expect(res.body.data.name).toBe('testExchange')
       })
   })
   afterAll(async () => {
-    await prismaCli.exchange.deleteMany({
-      where: { name: 'testExchange' },
-    })
+    await exchangeService.delete(newExchangeId)
   })
 })

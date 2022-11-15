@@ -1,20 +1,19 @@
 import request from 'supertest'
-import { app } from 'src/app'
+import { app } from '../../app'
 import mockAuthData from '../../mocks/auth.json'
-import { Status } from '@prisma/client'
+import { Status, User } from '@prisma/client'
 import { prismaCli } from '../../config/db'
 import { v4 as uuid } from 'uuid'
-import bcrypt from 'bcrypt'
+import { UserService } from '../../services/UserService'
+import { getUserData } from '../../mocks/utils'
+import { randEmail, randFullName } from '@ngneat/falso'
 
-const id = mockAuthData.userId
-const jwt = mockAuthData.jwt
-const user = {
-  email: 'test@test.com',
-  password: 'test',
-}
+const userService = new UserService()
 
 describe('POST /user', () => {
+  const user = getUserData()
   let newUserId = ''
+
   test('should return a created user', async () => {
     return await request(app)
       .post('/user')
@@ -32,12 +31,7 @@ describe('POST /user', () => {
   })
 
   afterAll(async () => {
-    await prismaCli.user.delete({
-      where: { email: user.email },
-    })
-    await prismaCli.userSecret.delete({
-      where: { userId: newUserId },
-    })
+    await userService.delete(newUserId)
   })
 })
 
@@ -45,35 +39,35 @@ describe('POST /user/delete', () => {
   beforeAll(async () => {
     await prismaCli.user.create({
       data: {
-        id,
-        email: user.email,
-        status: Status.ACTIVE,
+        id: mockAuthData.userId,
+        email: randEmail(),
+        name: randFullName(),
       },
     })
   })
 
   test('should return a 200 status', async () => {
-    return await request(app).post(`/user/delete`).set('Authorization', jwt).expect(200)
+    await request(app)
+      .post(`/user/delete`)
+      .set('Authorization', mockAuthData.jwt)
+      .expect(200)
+    const deletedUser = await userService.get(mockAuthData.userId)
+    expect(deletedUser).toBeNull()
   })
 })
 
 describe('GET /user/{userId}', () => {
+  let user: User
   beforeAll(async () => {
-    await prismaCli.user.create({
-      data: {
-        id,
-        email: user.email,
-        status: Status.INACTIVE,
-      },
-    })
+    user = await userService.create(getUserData())
   })
-
   test('should return the correct user', async () => {
     return await request(app)
-      .get(`/user/${id}`)
-      .set('Authorization', jwt)
+      .get(`/user/${user.id}`)
+      .set('Authorization', mockAuthData.jwt)
       .expect(res => {
-        expect(res.body.data.id).toBe(id)
+        expect(res.body.data.id).toBe(user.id)
+        expect(res.body.data.email).toBe(user.email)
       })
   })
 
@@ -85,35 +79,24 @@ describe('GET /user/{userId}', () => {
   })
 
   afterAll(async () => {
-    await prismaCli.user.delete({
-      where: { id },
-    })
+    await userService.delete(user.id)
   })
 })
 
 describe('POST /user/login', () => {
+  const userData = getUserData()
+  let user: User
   beforeAll(async () => {
-    await prismaCli.user.create({
-      data: {
-        id,
-        email: user.email,
-        status: Status.INACTIVE,
-      },
-    })
-    const hashedPassword = await bcrypt.hash(user.password, 10)
-    await prismaCli.userSecret.create({
-      data: {
-        id: uuid(),
-        userId: id,
-        secret: hashedPassword,
-      },
-    })
+    user = await userService.create(userData)
   })
 
   test('should return a token', async () => {
     return await request(app)
       .post('/user/login')
-      .send(user)
+      .send({
+        email: userData.email,
+        password: userData.password,
+      })
       .expect(res => {
         expect(res.body.data.token).toBeTruthy()
         expect(res.body.data.user.email).toBe(user.email)
@@ -122,44 +105,37 @@ describe('POST /user/login', () => {
   })
 
   afterAll(async () => {
-    await prismaCli.user.delete({
-      where: { id },
-    })
-    await prismaCli.userSecret.delete({
-      where: { userId: id },
-    })
+    await userService.delete(user.id)
   })
 })
 
 describe('POST /user/logout', () => {
+  let user: User
   beforeAll(async () => {
-    await prismaCli.user.create({
+    user = await prismaCli.user.create({
       data: {
-        id,
-        email: user.email,
+        id: mockAuthData.userId,
+        email: 'test',
         status: Status.ACTIVE,
+        name: 'test',
       },
     })
   })
+
   test('should return a 204', async () => {
     await request(app)
       .post('/user/logout')
-      .set('Authorization', jwt)
-      .send({
-        id,
-      })
+      .set('Authorization', mockAuthData.jwt)
       .expect(204)
 
     const loggedOutUser = await prismaCli.user.findUnique({
-      where: { id },
+      where: { id: mockAuthData.userId },
     })
 
     expect(loggedOutUser?.status).toBe(Status.INACTIVE)
   })
 
   afterAll(async () => {
-    await prismaCli.user.delete({
-      where: { id },
-    })
+    await userService.delete(user.id)
   })
 })
