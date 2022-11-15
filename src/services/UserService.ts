@@ -9,10 +9,11 @@ import ApiError from '../utils/ApiError'
 export interface UserCreateParams {
   email: string
   password: string
+  name: string
 }
 
 export class UserService {
-  async createUser(params: UserCreateParams): Promise<User> {
+  async create(params: UserCreateParams): Promise<User> {
     const existingUser = await prismaCli.user.findUnique({
       where: { email: params.email },
     })
@@ -25,15 +26,14 @@ export class UserService {
 
     const user = await prismaCli.user.create({
       data: {
-        id: uuid(),
         email: params.email,
         status: Status.INACTIVE,
+        name: params.name,
       },
     })
 
     await prismaCli.userSecret.create({
       data: {
-        id: uuid(),
         userId: user.id,
         secret: hashedPassword,
       },
@@ -41,13 +41,16 @@ export class UserService {
     return user
   }
 
-  async deleteUser(id: string): Promise<User> {
+  async delete(id: string): Promise<User> {
+    await prismaCli.userSecret.deleteMany({
+      where: { userId: id },
+    })
     return await prismaCli.user.delete({
       where: { id },
     })
   }
 
-  async getUser(id: string): Promise<User | null> {
+  async get(id: string): Promise<User | null> {
     return await prismaCli.user.findUnique({
       where: {
         id,
@@ -69,11 +72,15 @@ export class UserService {
       where: { email },
     })
 
+    if (!maybeUser) {
+      throw new ApiError(404, 'User not found')
+    }
+
     const hashedPassword = await prismaCli.userSecret.findUnique({
       where: { userId: maybeUser?.id },
     })
 
-    if (maybeUser && hashedPassword) {
+    if (hashedPassword) {
       const isPasswordValid = await bcrypt.compare(password, hashedPassword.secret)
 
       if (isPasswordValid) {

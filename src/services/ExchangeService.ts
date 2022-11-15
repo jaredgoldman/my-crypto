@@ -33,4 +33,8 @@ export class ExchangeService {
       },
     })
   }
+
+  async delete(id: string): Promise<Exchange> {
+    return await prismaCli.exchange.delete({ where: { id } })
+  }
 }

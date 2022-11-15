@@ -2,50 +2,75 @@ import { Exchange, UserExchange } from '@prisma/client'
 import { prismaCli } from '../config/db'
 import { v4 as uuid } from 'uuid'
 import { Paginated } from '../types/api'
-import bcrypt from 'bcrypt'
+import ApiError from '../utils/ApiError'
+import { KeyService } from './KeyService'
+import { CcxtService } from './CcxtService'
 
 export class UserExchangeService {
-  async createUserExchange(
+  private keyService = new KeyService()
+
+  async create(
     userId: string,
     exchangeId: string,
-    apiKey: string
+    apiKey: string,
+    apiSecret: string
   ): Promise<UserExchange> {
-    const hashedApiKey = await bcrypt.hash(apiKey, 10)
+    const maybeUserExchange = await this.get(userId, exchangeId)
 
-    await prismaCli.userExchangeKey.create({
+    if (maybeUserExchange) {
+      throw new ApiError(400, 'User exchange already exists')
+    }
+
+    const hashedApiKey = this.keyService.encrypt(apiKey)
+    const hasedApiSecret = this.keyService.encrypt(apiSecret)
+
+    const userExchangeKey = await prismaCli.userExchangeKey.create({
       data: {
-        id: uuid(),
         userId,
         exchangeId,
-        key: hashedApiKey,
+        key: hashedApiKey.encryptedKey,
+        keyIv: hashedApiKey.iv,
+        secret: hasedApiSecret.encryptedKey,
+        secretIv: hasedApiSecret.iv,
       },
     })
 
     return await prismaCli.userExchange.create({
       data: {
-        id: uuid(),
         userId,
         exchangeId,
+        userExchangeKeyId: userExchangeKey.id,
       },
     })
   }
 
-  async deleteUserExchange(userId: string, exchangeId: string): Promise<UserExchange> {
-    return await prismaCli.userExchange.delete({
-      where: { userId_exchangeId: { userId, exchangeId } },
+  async delete(id: string): Promise<UserExchange> {
+    const userExchange = await prismaCli.userExchange.findFirst({
+      where: { id },
     })
+    if (userExchange) {
+      await prismaCli.userExchange.deleteMany({ where: { id } })
+      await prismaCli.userExchangeKey.deleteMany({
+        where: { id: userExchange.userExchangeKeyId },
+      })
+      return userExchange
+    }
+    throw new ApiError(404, 'User exchange not found')
   }
 
-  async getUserExchange(
-    userId: string,
-    exchangeId: string
-  ): Promise<UserExchange | null> {
-    return await prismaCli.userExchange.findFirst({
+  async get(userId: string, exchangeId: string): Promise<UserExchange | null> {
+    const userExchange = prismaCli.userExchange.findFirst({
       where: { userId, exchangeId },
     })
+
+    if (!userExchange) {
+      throw new ApiError(404, 'User exchange not found')
+    }
+
+    return userExchange
   }
 
-  async getUserExchanges(
+  async getAll(
     userId: string,
     page: number,
     limit: number
@@ -62,5 +87,10 @@ export class UserExchangeService {
       next: userExchanges.length === limit ? page + 1 : null,
       previous: page > 0 ? page - 1 : null,
     }
+  }
+
+  async initializeUserExchange(userId: string, exchangeId: string): Promise<any> {
+    // find user, grab keys
+    const userExchange = await this.get(userId, exchangeId)
   }
 }
