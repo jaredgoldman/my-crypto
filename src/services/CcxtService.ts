@@ -24,6 +24,7 @@ export class CcxtService {
       apiKey: this.apiKey,
       secret: this.secretKey,
     })
+    console.log(this.exchange.currencies)
   }
 
   async fetchTrades() {
@@ -32,7 +33,6 @@ export class CcxtService {
     }
 
     const trades = await this.exchange.fetchTrades('BTC/CAD')
-    console.log('TRADES', trades)
   }
 
   async setup(): Promise<void> {

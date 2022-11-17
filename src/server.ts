@@ -12,7 +12,7 @@ const startServer = async () => {
     .then(async () => {
       initLog()
       app.listen(env.port, () =>
-        Logger.info(`Bitbuy Stocks API listening at http://localhost:${env.port}`)
+        Logger.info(`my-crypto running at http://localhost:${env.port}`)
       )
     })
     .catch(e => {

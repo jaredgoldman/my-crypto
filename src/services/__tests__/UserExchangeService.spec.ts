@@ -29,8 +29,8 @@ describe('user exchange service', () => {
     expect(userExchange.userId).toBe(user.id)
   })
   test('should get a user exchange', async () => {
-    const userExchange = await userExchangeService.get(user.id, exchange.id)
-    expect(userExchange?.userId).toBe(user.id)
+    const userExchangeData = await userExchangeService.get(userExchange.id)
+    expect(userExchangeData?.userId).toBe(user.id)
   })
   test('should get all a users user exchanges', async () => {
     const userExchanges = await userExchangeService.getAll(user.id, 0, 10)

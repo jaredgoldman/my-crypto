@@ -3,11 +3,13 @@ import mockAuthData from '../../mocks/auth.json'
 import { app } from '../../app'
 import request from 'supertest'
 import { v4 as uuid } from 'uuid'
-import { Exchange, User, UserExchange } from '@prisma/client'
+import { Exchange, UserExchange } from '@prisma/client'
 import { UserExchangeService } from '../../services/UserExchangeService'
 import { UserService } from '../../services/UserService'
 import { ExchangeService } from '../../services/ExchangeService'
 import { getUserData, getExchangeData } from '../../mocks/utils'
+import { randUuid } from '@ngneat/falso'
+
 const userService = new UserService()
 const exchangeService = new ExchangeService()
 const userExchangeService = new UserExchangeService()
@@ -15,7 +17,8 @@ const userExchangeService = new UserExchangeService()
 describe('POST /user-exchange', () => {
   let userData = getUserData()
   let exchange: Exchange
-  let userExchangeKeyId = ''
+  // let userExchangeKeyId = ''
+  let userExchangeId = ''
   beforeAll(async () => {
     exchange = await exchangeService.create(getExchangeData())
     await prismaCli.user.create({
@@ -37,7 +40,8 @@ describe('POST /user-exchange', () => {
         apiSecret: uuid(),
       })
       .expect(res => {
-        userExchangeKeyId = res.body.data.userExchangeId
+        // userExchangeKeyId = res.body.data.userExchangeId
+        userExchangeId = res.body.data.id
         expect(res.body.data.exchangeId).toBe(exchange.id)
         expect(res.body.data.userId).toBe(mockAuthData.userId)
         expect(res.body.data.userExchangeKeyId).toBeTruthy()
@@ -45,26 +49,34 @@ describe('POST /user-exchange', () => {
   })
 
   afterAll(async () => {
-    await userExchangeService.delete(userExchangeKeyId)
+    await userExchangeService.delete(userExchangeId)
     await userService.delete(mockAuthData.userId)
     await exchangeService.delete(exchange.id)
   })
 })
 
-describe.skip('GET /user-exchange', () => {
+describe('GET /user-exchange', () => {
   let exchange: Exchange
+  let userData = getUserData()
   let userExchange: UserExchange
-  test('should get user exchanges', async () => {
-    beforeAll(async () => {
-      exchange = await exchangeService.create(getExchangeData())
-      userExchange = await userExchangeService.create(
-        mockAuthData.userId,
-        exchange.id,
-        uuid(),
-        uuid()
-      )
+  beforeAll(async () => {
+    await prismaCli.user.create({
+      data: {
+        email: userData.email,
+        name: userData.name,
+        id: mockAuthData.userId,
+      },
     })
+    exchange = await exchangeService.create(getExchangeData())
+    userExchange = await userExchangeService.create(
+      mockAuthData.userId,
+      exchange.id,
+      uuid(),
+      uuid()
+    )
+  })
 
+  test('should get user exchanges', async () => {
     const numOfCurrentExchanges = await prismaCli.userExchange.count({
       where: {
         userId: mockAuthData.userId,
@@ -75,28 +87,35 @@ describe.skip('GET /user-exchange', () => {
       .get('/user-exchange')
       .set('Authorization', `${mockAuthData.jwt}`)
       .expect(res => {
-        expect(res.body.data.data.length).toBe(numOfCurrentExchanges + 1)
+        expect(res.body.data.data.length).toBe(numOfCurrentExchanges)
       })
   })
 
   afterAll(async () => {
-    await exchangeService.delete(exchange.id)
     await userExchangeService.delete(userExchange.id)
+    await exchangeService.delete(exchange.id)
+    await userService.delete(mockAuthData.userId)
   })
 })
 
-describe.skip('GET/ user-exchange/{exchangeId}', () => {
+describe('GET/ user-exchange/{exchangeId}', () => {
   let exchange: Exchange
-  let user: User
+  let user = getUserData()
   let userExchange: UserExchange
   beforeAll(async () => {
-    user = await userService.create(getUserData())
+    await prismaCli.user.create({
+      data: {
+        id: mockAuthData.userId,
+        email: user.email,
+        name: user.name,
+      },
+    })
     exchange = await exchangeService.create(getExchangeData())
     userExchange = await userExchangeService.create(
-      user.id,
+      mockAuthData.userId,
       exchange.id,
-      'test-value',
-      'test'
+      uuid(),
+      uuid()
     )
   })
 
@@ -114,24 +133,27 @@ describe.skip('GET/ user-exchange/{exchangeId}', () => {
 
   afterAll(async () => {
     await userExchangeService.delete(userExchange.id)
-    await userService.delete(user.id)
+    await userService.delete(mockAuthData.userId)
     await exchangeService.delete(exchange.id)
   })
 })
 
-describe.skip('PUT /user-exchange/delete', () => {
+describe('POST /user-exchange/delete', () => {
   let userExchange: UserExchange
   beforeAll(async () => {
     const user = await userService.create(getUserData())
     const exchange = await exchangeService.create(getExchangeData())
-    userExchange = await userExchangeService.create(user.id, exchange.id, 'test', 'test')
+    userExchange = await userExchangeService.create(
+      user.id,
+      exchange.id,
+      randUuid(),
+      randUuid()
+    )
   })
 
   test('should delete a user exchange', async () => {
     return await request(app)
-      .post(
-        `/user-exchange/delete?exchangeId=${userExchange.id}&userId=${userExchange.userId}`
-      )
+      .post(`/user-exchange/delete?userExchangeId=${userExchange.id}`)
       .set('Authorization', `${mockAuthData.jwt}`)
       .expect(201)
       .expect(res => {
@@ -140,6 +162,7 @@ describe.skip('PUT /user-exchange/delete', () => {
         expect(res.body.data.exchangeId).toEqual(userExchange.exchangeId)
       })
   })
+
   afterAll(async () => {
     await userService.delete(userExchange.userId)
     await exchangeService.delete(userExchange.exchangeId)

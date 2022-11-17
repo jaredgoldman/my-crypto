@@ -18,6 +18,7 @@ export const getUserData = (): UserCreateParams => {
 
 export const getExchangeData = () => {
   return {
+    displayName: randCompanyName(),
     name: randCompanyName(),
     url: randUrl(),
     image: randUrl(),

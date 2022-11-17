@@ -1,20 +1,17 @@
 import request from 'supertest'
+import { Exchange } from '@prisma/client'
 import { prismaCli } from '../../config/db'
 import mockAuthData from '../../mocks/auth.json'
 import { app } from '../../app'
 import { ExchangeService } from '../../services/ExchangeService'
+import { getExchangeData } from '../../mocks/utils'
 
 const exchangeService = new ExchangeService()
 
 describe('GET /exchange', () => {
-  let newExchangeId = ''
+  let exchange: Exchange
   beforeAll(async () => {
-    const newExchage = await exchangeService.create({
-      name: 'Test Exchange',
-      url: 'https://test.com',
-      image: 'https://test.exchange/image.png',
-    })
-    newExchangeId = newExchage.id
+    exchange = await exchangeService.create(getExchangeData())
   })
 
   // TODO: Will break when actual exchanges are added
@@ -29,55 +26,52 @@ describe('GET /exchange', () => {
   })
 
   afterAll(async () => {
-    await exchangeService.delete(newExchangeId)
+    await exchangeService.delete(exchange.id)
   })
 })
 
 describe('GET /exchange/:id', () => {
-  let newExchangeId = ''
+  let exchange: Exchange
   beforeAll(async () => {
-    const exchange = await exchangeService.create({
-      name: 'Test Exchange',
-      url: 'https://test.com',
-      image: 'https://test.exchange/image.png',
-    })
-    newExchangeId = exchange.id
+    exchange = await exchangeService.create(getExchangeData())
   })
 
   test('should return an exchange', () => {
     return request(app)
-      .get(`/exchanges/${newExchangeId}`)
+      .get(`/exchanges/${exchange.id}`)
       .set('Authorization', mockAuthData.jwt)
       .expect(res => {
-        expect(res.body.data.id).toBe(newExchangeId)
-        expect(res.body.data.name).toBe('Test Exchange')
-        expect(res.body.data.url).toBe('https://test.com')
-        expect(res.body.data.image).toBe('https://test.exchange/image.png')
+        expect(res.body.data.id).toBe(exchange.id)
+        expect(res.body.data.name).toBe(exchange.name)
+        expect(res.body.data.url).toBe(exchange.url)
+        expect(res.body.data.image).toBe(exchange.image)
       })
   })
 
   afterAll(async () => {
-    await exchangeService.delete(newExchangeId)
+    await exchangeService.delete(exchange.id)
   })
 })
 
 describe('POST /exchange', () => {
-  let newExchangeId = ''
+  const exchange = getExchangeData()
+  let exchangeId = ''
   test('should create an exchange', () => {
     return request(app)
       .post('/exchanges')
       .set('Authorization', mockAuthData.jwt)
       .send({
-        name: 'testExchange',
-        url: 'https://test.com',
-        image: 'https://test.com/image.png',
+        name: exchange.name,
+        url: exchange.url,
+        displayName: exchange.displayName,
+        image: exchange.image,
       })
       .expect(res => {
-        newExchangeId = res.body.data.id
-        expect(res.body.data.name).toBe('testExchange')
+        exchangeId = res.body.data.id
+        expect(res.body.data.name).toBe(exchange.name)
       })
   })
   afterAll(async () => {
-    await exchangeService.delete(newExchangeId)
+    await exchangeService.delete(exchangeId)
   })
 })

@@ -57,17 +57,10 @@ export class UserExchangeController extends Controller {
   @Post('delete')
   @SuccessResponse('201', 'OK')
   public async delete(
-    @Query() userId: string,
-    @Query() exchangeId: string
+    @Query() userExchangeId: string
   ): Promise<Response<UserExchange | undefined>> {
-    let data: UserExchange | undefined
-    let message: ResponseMessage = ResponseMessage.success
-    const userExchange = await this.userExchangeService.get(userId, exchangeId)
-    if (userExchange) {
-      const deletedUserExchange = await this.userExchangeService.delete(userExchange?.id)
-      message = deletedUserExchange ? ResponseMessage.success : ResponseMessage.notFound
-    }
-    return { data, message }
+    const deletedUserExchange = await this.userExchangeService.delete(userExchangeId)
+    return { data: deletedUserExchange, message: ResponseMessage.success }
   }
 
   @Get()
@@ -82,15 +75,17 @@ export class UserExchangeController extends Controller {
     return { data: userExchanges, message: ResponseMessage.success }
   }
 
-  @Get('{exchangeId}')
+  @Get('{id}')
   @SuccessResponse('200', 'OK')
   public async get(
     @Request() request: Express.Request,
-    @Path() exchangeId: string
+    @Path() id: string
   ): Promise<Response<UserExchange> | void> {
     const user = (request as any).user as AuthToken
-    const userExchange = await this.userExchangeService.get(user.sub, exchangeId)
-
-    return { data: userExchange, message: ResponseMessage.success }
+    const userExchange = await this.userExchangeService.get(id)
+    if (userExchange && userExchange.userId === user.sub) {
+      return { data: userExchange, message: ResponseMessage.success }
+    }
+    throw new ApiError(404, 'User exchange not found')
   }
 }

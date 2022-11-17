@@ -3,7 +3,10 @@ import { prismaCli } from '../config/db'
 import { v4 as uuid } from 'uuid'
 import { Paginated } from '@src/types/api'
 
-export type ExchangeCreationParams = Pick<Exchange, 'name' | 'url' | 'image'>
+export type ExchangeCreationParams = Pick<
+  Exchange,
+  'name' | 'url' | 'image' | 'displayName'
+>
 
 export class ExchangeService {
   async get(id: string): Promise<Exchange | null> {
@@ -26,8 +29,8 @@ export class ExchangeService {
   async create(params: ExchangeCreationParams): Promise<Exchange> {
     return await prismaCli.exchange.create({
       data: {
-        id: uuid(),
         name: params.name,
+        displayName: params.displayName,
         url: params.url,
         image: params.image,
       },
