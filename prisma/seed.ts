@@ -8,14 +8,14 @@ async function seed() {
     await prismaCli.exchange.createMany({
       data: [
         {
-          id: uuid(),
-          name: 'Binance',
+          displayName: 'Binance',
+          name: 'binance',
           url: 'https://www.binance.com/',
           image: 'https://www.binance.com/resources/img/favicon.ico',
         },
         {
-          id: uuid(),
-          name: 'Kraken',
+          displayName: 'Kraken',
+          name: 'kraken',
           url: 'https://www.kraken.com',
           image: 'https://www.kraken.com/logo.png',
         },

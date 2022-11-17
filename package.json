@@ -16,7 +16,7 @@
     "test": "jest --silent=false --detectOpenHandles --forceExit",
     "test:watch": "jest --watch",
     "seed": "ts-node prisma/seed.ts",
-    "reset": "prisma migrate reset && yarn build"
+    "clean-db": "node build/scripts/cleanDb.js"
   },
   "dependencies": {
     "@ngneat/falso": "^6.1.0",

@@ -13,6 +13,7 @@ datasource db {
 model Exchange {
   id              String            @id @default(uuid()) @db.Uuid
   name            String            @unique
+  displayName     String
   url             String
   image           String
   status          Status            @default(ACTIVE)
