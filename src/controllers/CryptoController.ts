@@ -1,6 +1,7 @@
 import { Controller, Route, Security, Request, Get, Path } from 'tsoa'
 import { CcxtService } from '../services/CcxtService'
 import { UserExchangeService } from '../services/UserExchangeService'
+import { User } from '@prisma/client'
 
 @Security('basic')
 @Route('crypto/{userExchangeId}')
@@ -11,7 +12,7 @@ export class CcxtController extends Controller {
     @Request() request: Express.Request,
     @Path() userExchangeId: string
   ) {
-    const user = (request as any).user
+    const user = (request as any).user as User
     const { key, secret, exchangeName } =
       await this.userExchangeService.getUserExchangeKeys(userExchangeId, user.id)
 
@@ -19,7 +20,7 @@ export class CcxtController extends Controller {
       exchangeName,
       key,
       secret,
-      user.sub,
+      user.id,
       userExchangeId
     )
     await ccxtService.fetchAndStoreUserExchangeData()

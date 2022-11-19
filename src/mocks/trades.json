@@ -1,0 +1,3702 @@
+[
+  {
+    "info": {
+      "ordertxid": "O4FLQY--0",
+      "postxid": "TKH2SE--0",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608036,
+    "datetime": "2021-12-21T04:06:48.036Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-0",
+    "order": "O4FLQY-SJ45P-B46C4L-0"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--1",
+      "postxid": "TKH2SE--1",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608037,
+    "datetime": "2021-12-21T04:06:48.037Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-1",
+    "order": "O4FLQY-SJ45P-B46C4L-1"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--2",
+      "postxid": "TKH2SE--2",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608038,
+    "datetime": "2021-12-21T04:06:48.038Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-2",
+    "order": "O4FLQY-SJ45P-B46C4L-2"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--3",
+      "postxid": "TKH2SE--3",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608039,
+    "datetime": "2021-12-21T04:06:48.039Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-3",
+    "order": "O4FLQY-SJ45P-B46C4L-3"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--4",
+      "postxid": "TKH2SE--4",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608040,
+    "datetime": "2021-12-21T04:06:48.040Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-4",
+    "order": "O4FLQY-SJ45P-B46C4L-4"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--5",
+      "postxid": "TKH2SE--5",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608041,
+    "datetime": "2021-12-21T04:06:48.041Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-5",
+    "order": "O4FLQY-SJ45P-B46C4L-5"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--6",
+      "postxid": "TKH2SE--6",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608042,
+    "datetime": "2021-12-21T04:06:48.042Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-6",
+    "order": "O4FLQY-SJ45P-B46C4L-6"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--7",
+      "postxid": "TKH2SE--7",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608043,
+    "datetime": "2021-12-21T04:06:48.043Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-7",
+    "order": "O4FLQY-SJ45P-B46C4L-7"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--8",
+      "postxid": "TKH2SE--8",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608044,
+    "datetime": "2021-12-21T04:06:48.044Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-8",
+    "order": "O4FLQY-SJ45P-B46C4L-8"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--9",
+      "postxid": "TKH2SE--9",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608045,
+    "datetime": "2021-12-21T04:06:48.045Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-9",
+    "order": "O4FLQY-SJ45P-B46C4L-9"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--10",
+      "postxid": "TKH2SE--10",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608046,
+    "datetime": "2021-12-21T04:06:48.046Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-10",
+    "order": "O4FLQY-SJ45P-B46C4L-10"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--11",
+      "postxid": "TKH2SE--11",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608047,
+    "datetime": "2021-12-21T04:06:48.047Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-11",
+    "order": "O4FLQY-SJ45P-B46C4L-11"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--12",
+      "postxid": "TKH2SE--12",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608048,
+    "datetime": "2021-12-21T04:06:48.048Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-12",
+    "order": "O4FLQY-SJ45P-B46C4L-12"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--13",
+      "postxid": "TKH2SE--13",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608049,
+    "datetime": "2021-12-21T04:06:48.049Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-13",
+    "order": "O4FLQY-SJ45P-B46C4L-13"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--14",
+      "postxid": "TKH2SE--14",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608050,
+    "datetime": "2021-12-21T04:06:48.050Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-14",
+    "order": "O4FLQY-SJ45P-B46C4L-14"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--15",
+      "postxid": "TKH2SE--15",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608051,
+    "datetime": "2021-12-21T04:06:48.051Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-15",
+    "order": "O4FLQY-SJ45P-B46C4L-15"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--16",
+      "postxid": "TKH2SE--16",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608052,
+    "datetime": "2021-12-21T04:06:48.052Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-16",
+    "order": "O4FLQY-SJ45P-B46C4L-16"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--17",
+      "postxid": "TKH2SE--17",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608053,
+    "datetime": "2021-12-21T04:06:48.053Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-17",
+    "order": "O4FLQY-SJ45P-B46C4L-17"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--18",
+      "postxid": "TKH2SE--18",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608054,
+    "datetime": "2021-12-21T04:06:48.054Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-18",
+    "order": "O4FLQY-SJ45P-B46C4L-18"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--19",
+      "postxid": "TKH2SE--19",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608055,
+    "datetime": "2021-12-21T04:06:48.055Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-19",
+    "order": "O4FLQY-SJ45P-B46C4L-19"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--20",
+      "postxid": "TKH2SE--20",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608056,
+    "datetime": "2021-12-21T04:06:48.056Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-20",
+    "order": "O4FLQY-SJ45P-B46C4L-20"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--21",
+      "postxid": "TKH2SE--21",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608057,
+    "datetime": "2021-12-21T04:06:48.057Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-21",
+    "order": "O4FLQY-SJ45P-B46C4L-21"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--22",
+      "postxid": "TKH2SE--22",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608058,
+    "datetime": "2021-12-21T04:06:48.058Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-22",
+    "order": "O4FLQY-SJ45P-B46C4L-22"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--23",
+      "postxid": "TKH2SE--23",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608059,
+    "datetime": "2021-12-21T04:06:48.059Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-23",
+    "order": "O4FLQY-SJ45P-B46C4L-23"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--24",
+      "postxid": "TKH2SE--24",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608060,
+    "datetime": "2021-12-21T04:06:48.060Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-24",
+    "order": "O4FLQY-SJ45P-B46C4L-24"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--25",
+      "postxid": "TKH2SE--25",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608061,
+    "datetime": "2021-12-21T04:06:48.061Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-25",
+    "order": "O4FLQY-SJ45P-B46C4L-25"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--26",
+      "postxid": "TKH2SE--26",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608062,
+    "datetime": "2021-12-21T04:06:48.062Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-26",
+    "order": "O4FLQY-SJ45P-B46C4L-26"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--27",
+      "postxid": "TKH2SE--27",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608063,
+    "datetime": "2021-12-21T04:06:48.063Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-27",
+    "order": "O4FLQY-SJ45P-B46C4L-27"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--28",
+      "postxid": "TKH2SE--28",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608064,
+    "datetime": "2021-12-21T04:06:48.064Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-28",
+    "order": "O4FLQY-SJ45P-B46C4L-28"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--29",
+      "postxid": "TKH2SE--29",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608065,
+    "datetime": "2021-12-21T04:06:48.065Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-29",
+    "order": "O4FLQY-SJ45P-B46C4L-29"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--30",
+      "postxid": "TKH2SE--30",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608066,
+    "datetime": "2021-12-21T04:06:48.066Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-30",
+    "order": "O4FLQY-SJ45P-B46C4L-30"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--31",
+      "postxid": "TKH2SE--31",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608067,
+    "datetime": "2021-12-21T04:06:48.067Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-31",
+    "order": "O4FLQY-SJ45P-B46C4L-31"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--32",
+      "postxid": "TKH2SE--32",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608068,
+    "datetime": "2021-12-21T04:06:48.068Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-32",
+    "order": "O4FLQY-SJ45P-B46C4L-32"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--33",
+      "postxid": "TKH2SE--33",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608069,
+    "datetime": "2021-12-21T04:06:48.069Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-33",
+    "order": "O4FLQY-SJ45P-B46C4L-33"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--34",
+      "postxid": "TKH2SE--34",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608070,
+    "datetime": "2021-12-21T04:06:48.070Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-34",
+    "order": "O4FLQY-SJ45P-B46C4L-34"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--35",
+      "postxid": "TKH2SE--35",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608071,
+    "datetime": "2021-12-21T04:06:48.071Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-35",
+    "order": "O4FLQY-SJ45P-B46C4L-35"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--36",
+      "postxid": "TKH2SE--36",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608072,
+    "datetime": "2021-12-21T04:06:48.072Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-36",
+    "order": "O4FLQY-SJ45P-B46C4L-36"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--37",
+      "postxid": "TKH2SE--37",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608073,
+    "datetime": "2021-12-21T04:06:48.073Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-37",
+    "order": "O4FLQY-SJ45P-B46C4L-37"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--38",
+      "postxid": "TKH2SE--38",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608074,
+    "datetime": "2021-12-21T04:06:48.074Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-38",
+    "order": "O4FLQY-SJ45P-B46C4L-38"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--39",
+      "postxid": "TKH2SE--39",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608075,
+    "datetime": "2021-12-21T04:06:48.075Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-39",
+    "order": "O4FLQY-SJ45P-B46C4L-39"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--40",
+      "postxid": "TKH2SE--40",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608076,
+    "datetime": "2021-12-21T04:06:48.076Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-40",
+    "order": "O4FLQY-SJ45P-B46C4L-40"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--41",
+      "postxid": "TKH2SE--41",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608077,
+    "datetime": "2021-12-21T04:06:48.077Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-41",
+    "order": "O4FLQY-SJ45P-B46C4L-41"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--42",
+      "postxid": "TKH2SE--42",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608078,
+    "datetime": "2021-12-21T04:06:48.078Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-42",
+    "order": "O4FLQY-SJ45P-B46C4L-42"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--43",
+      "postxid": "TKH2SE--43",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608079,
+    "datetime": "2021-12-21T04:06:48.079Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-43",
+    "order": "O4FLQY-SJ45P-B46C4L-43"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--44",
+      "postxid": "TKH2SE--44",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608080,
+    "datetime": "2021-12-21T04:06:48.080Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-44",
+    "order": "O4FLQY-SJ45P-B46C4L-44"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--45",
+      "postxid": "TKH2SE--45",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608081,
+    "datetime": "2021-12-21T04:06:48.081Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-45",
+    "order": "O4FLQY-SJ45P-B46C4L-45"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--46",
+      "postxid": "TKH2SE--46",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608082,
+    "datetime": "2021-12-21T04:06:48.082Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-46",
+    "order": "O4FLQY-SJ45P-B46C4L-46"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--47",
+      "postxid": "TKH2SE--47",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608083,
+    "datetime": "2021-12-21T04:06:48.083Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-47",
+    "order": "O4FLQY-SJ45P-B46C4L-47"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--48",
+      "postxid": "TKH2SE--48",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608084,
+    "datetime": "2021-12-21T04:06:48.084Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-48",
+    "order": "O4FLQY-SJ45P-B46C4L-48"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--49",
+      "postxid": "TKH2SE--49",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608085,
+    "datetime": "2021-12-21T04:06:48.085Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-49",
+    "order": "O4FLQY-SJ45P-B46C4L-49"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--50",
+      "postxid": "TKH2SE--50",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608086,
+    "datetime": "2021-12-21T04:06:48.086Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-50",
+    "order": "O4FLQY-SJ45P-B46C4L-50"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--51",
+      "postxid": "TKH2SE--51",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608087,
+    "datetime": "2021-12-21T04:06:48.087Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-51",
+    "order": "O4FLQY-SJ45P-B46C4L-51"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--52",
+      "postxid": "TKH2SE--52",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608088,
+    "datetime": "2021-12-21T04:06:48.088Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-52",
+    "order": "O4FLQY-SJ45P-B46C4L-52"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--53",
+      "postxid": "TKH2SE--53",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608089,
+    "datetime": "2021-12-21T04:06:48.089Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-53",
+    "order": "O4FLQY-SJ45P-B46C4L-53"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--54",
+      "postxid": "TKH2SE--54",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608090,
+    "datetime": "2021-12-21T04:06:48.090Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-54",
+    "order": "O4FLQY-SJ45P-B46C4L-54"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--55",
+      "postxid": "TKH2SE--55",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608091,
+    "datetime": "2021-12-21T04:06:48.091Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-55",
+    "order": "O4FLQY-SJ45P-B46C4L-55"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--56",
+      "postxid": "TKH2SE--56",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608092,
+    "datetime": "2021-12-21T04:06:48.092Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-56",
+    "order": "O4FLQY-SJ45P-B46C4L-56"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--57",
+      "postxid": "TKH2SE--57",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608093,
+    "datetime": "2021-12-21T04:06:48.093Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-57",
+    "order": "O4FLQY-SJ45P-B46C4L-57"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--58",
+      "postxid": "TKH2SE--58",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608094,
+    "datetime": "2021-12-21T04:06:48.094Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-58",
+    "order": "O4FLQY-SJ45P-B46C4L-58"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--59",
+      "postxid": "TKH2SE--59",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608095,
+    "datetime": "2021-12-21T04:06:48.095Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-59",
+    "order": "O4FLQY-SJ45P-B46C4L-59"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--60",
+      "postxid": "TKH2SE--60",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608096,
+    "datetime": "2021-12-21T04:06:48.096Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-60",
+    "order": "O4FLQY-SJ45P-B46C4L-60"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--61",
+      "postxid": "TKH2SE--61",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608097,
+    "datetime": "2021-12-21T04:06:48.097Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-61",
+    "order": "O4FLQY-SJ45P-B46C4L-61"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--62",
+      "postxid": "TKH2SE--62",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608098,
+    "datetime": "2021-12-21T04:06:48.098Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-62",
+    "order": "O4FLQY-SJ45P-B46C4L-62"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--63",
+      "postxid": "TKH2SE--63",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608099,
+    "datetime": "2021-12-21T04:06:48.099Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-63",
+    "order": "O4FLQY-SJ45P-B46C4L-63"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--64",
+      "postxid": "TKH2SE--64",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608100,
+    "datetime": "2021-12-21T04:06:48.100Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-64",
+    "order": "O4FLQY-SJ45P-B46C4L-64"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--65",
+      "postxid": "TKH2SE--65",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608101,
+    "datetime": "2021-12-21T04:06:48.101Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-65",
+    "order": "O4FLQY-SJ45P-B46C4L-65"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--66",
+      "postxid": "TKH2SE--66",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608102,
+    "datetime": "2021-12-21T04:06:48.102Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-66",
+    "order": "O4FLQY-SJ45P-B46C4L-66"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--67",
+      "postxid": "TKH2SE--67",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608103,
+    "datetime": "2021-12-21T04:06:48.103Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-67",
+    "order": "O4FLQY-SJ45P-B46C4L-67"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--68",
+      "postxid": "TKH2SE--68",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608104,
+    "datetime": "2021-12-21T04:06:48.104Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-68",
+    "order": "O4FLQY-SJ45P-B46C4L-68"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--69",
+      "postxid": "TKH2SE--69",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608105,
+    "datetime": "2021-12-21T04:06:48.105Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-69",
+    "order": "O4FLQY-SJ45P-B46C4L-69"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--70",
+      "postxid": "TKH2SE--70",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608106,
+    "datetime": "2021-12-21T04:06:48.106Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-70",
+    "order": "O4FLQY-SJ45P-B46C4L-70"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--71",
+      "postxid": "TKH2SE--71",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608107,
+    "datetime": "2021-12-21T04:06:48.107Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-71",
+    "order": "O4FLQY-SJ45P-B46C4L-71"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--72",
+      "postxid": "TKH2SE--72",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608108,
+    "datetime": "2021-12-21T04:06:48.108Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-72",
+    "order": "O4FLQY-SJ45P-B46C4L-72"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--73",
+      "postxid": "TKH2SE--73",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608109,
+    "datetime": "2021-12-21T04:06:48.109Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-73",
+    "order": "O4FLQY-SJ45P-B46C4L-73"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--74",
+      "postxid": "TKH2SE--74",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608110,
+    "datetime": "2021-12-21T04:06:48.110Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-74",
+    "order": "O4FLQY-SJ45P-B46C4L-74"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--75",
+      "postxid": "TKH2SE--75",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608111,
+    "datetime": "2021-12-21T04:06:48.111Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-75",
+    "order": "O4FLQY-SJ45P-B46C4L-75"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--76",
+      "postxid": "TKH2SE--76",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608112,
+    "datetime": "2021-12-21T04:06:48.112Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-76",
+    "order": "O4FLQY-SJ45P-B46C4L-76"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--77",
+      "postxid": "TKH2SE--77",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608113,
+    "datetime": "2021-12-21T04:06:48.113Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-77",
+    "order": "O4FLQY-SJ45P-B46C4L-77"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--78",
+      "postxid": "TKH2SE--78",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608114,
+    "datetime": "2021-12-21T04:06:48.114Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-78",
+    "order": "O4FLQY-SJ45P-B46C4L-78"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--79",
+      "postxid": "TKH2SE--79",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608115,
+    "datetime": "2021-12-21T04:06:48.115Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-79",
+    "order": "O4FLQY-SJ45P-B46C4L-79"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--80",
+      "postxid": "TKH2SE--80",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608116,
+    "datetime": "2021-12-21T04:06:48.116Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-80",
+    "order": "O4FLQY-SJ45P-B46C4L-80"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--81",
+      "postxid": "TKH2SE--81",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608117,
+    "datetime": "2021-12-21T04:06:48.117Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-81",
+    "order": "O4FLQY-SJ45P-B46C4L-81"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--82",
+      "postxid": "TKH2SE--82",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608118,
+    "datetime": "2021-12-21T04:06:48.118Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-82",
+    "order": "O4FLQY-SJ45P-B46C4L-82"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--83",
+      "postxid": "TKH2SE--83",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608119,
+    "datetime": "2021-12-21T04:06:48.119Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-83",
+    "order": "O4FLQY-SJ45P-B46C4L-83"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--84",
+      "postxid": "TKH2SE--84",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608120,
+    "datetime": "2021-12-21T04:06:48.120Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-84",
+    "order": "O4FLQY-SJ45P-B46C4L-84"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--85",
+      "postxid": "TKH2SE--85",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608121,
+    "datetime": "2021-12-21T04:06:48.121Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-85",
+    "order": "O4FLQY-SJ45P-B46C4L-85"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--86",
+      "postxid": "TKH2SE--86",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608122,
+    "datetime": "2021-12-21T04:06:48.122Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-86",
+    "order": "O4FLQY-SJ45P-B46C4L-86"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--87",
+      "postxid": "TKH2SE--87",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608123,
+    "datetime": "2021-12-21T04:06:48.123Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-87",
+    "order": "O4FLQY-SJ45P-B46C4L-87"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--88",
+      "postxid": "TKH2SE--88",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608124,
+    "datetime": "2021-12-21T04:06:48.124Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-88",
+    "order": "O4FLQY-SJ45P-B46C4L-88"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--89",
+      "postxid": "TKH2SE--89",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608125,
+    "datetime": "2021-12-21T04:06:48.125Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-89",
+    "order": "O4FLQY-SJ45P-B46C4L-89"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--90",
+      "postxid": "TKH2SE--90",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608126,
+    "datetime": "2021-12-21T04:06:48.126Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-90",
+    "order": "O4FLQY-SJ45P-B46C4L-90"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--91",
+      "postxid": "TKH2SE--91",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608127,
+    "datetime": "2021-12-21T04:06:48.127Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-91",
+    "order": "O4FLQY-SJ45P-B46C4L-91"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--92",
+      "postxid": "TKH2SE--92",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608128,
+    "datetime": "2021-12-21T04:06:48.128Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-92",
+    "order": "O4FLQY-SJ45P-B46C4L-92"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--93",
+      "postxid": "TKH2SE--93",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608129,
+    "datetime": "2021-12-21T04:06:48.129Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-93",
+    "order": "O4FLQY-SJ45P-B46C4L-93"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--94",
+      "postxid": "TKH2SE--94",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608130,
+    "datetime": "2021-12-21T04:06:48.130Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-94",
+    "order": "O4FLQY-SJ45P-B46C4L-94"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--95",
+      "postxid": "TKH2SE--95",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608131,
+    "datetime": "2021-12-21T04:06:48.131Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-95",
+    "order": "O4FLQY-SJ45P-B46C4L-95"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--96",
+      "postxid": "TKH2SE--96",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608132,
+    "datetime": "2021-12-21T04:06:48.132Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-96",
+    "order": "O4FLQY-SJ45P-B46C4L-96"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--97",
+      "postxid": "TKH2SE--97",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608133,
+    "datetime": "2021-12-21T04:06:48.133Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-97",
+    "order": "O4FLQY-SJ45P-B46C4L-97"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--98",
+      "postxid": "TKH2SE--98",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608134,
+    "datetime": "2021-12-21T04:06:48.134Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-98",
+    "order": "O4FLQY-SJ45P-B46C4L-98"
+  },
+  {
+    "info": {
+      "ordertxid": "O4FLQY--99",
+      "postxid": "TKH2SE--99",
+      "pair": "ALGOUSD",
+      "time": "1640059608.0367324",
+      "type": "buy",
+      "ordertype": "limit",
+      "price": "1.326410",
+      "cost": "0.000008",
+      "fee": "0.000000",
+      "vol": "0.00000627",
+      "margin": "0.000000",
+      "misc": "",
+      "id": "TIJA6H-4Y3R3-W54EEV"
+    },
+    "timestamp": 1640059608135,
+    "datetime": "2021-12-21T04:06:48.135Z",
+    "symbol": "ALGO/USD",
+    "type": "limit",
+    "side": "buy",
+    "price": 1.32641,
+    "amount": 0.00000627,
+    "cost": 0.000008,
+    "fee": {
+      "cost": 0,
+      "currency": "USD"
+    },
+    "fees": [
+      {
+        "cost": 0,
+        "currency": "USD"
+      }
+    ],
+    "id": "TIJA6H-4Y3R3-W54EEV-99",
+    "order": "O4FLQY-SJ45P-B46C4L-99"
+  }
+]

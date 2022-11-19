@@ -3,6 +3,7 @@ import env from '../config/env'
 import ccxt, { ExchangeId, Exchange, Trade } from 'ccxt'
 import { wait } from '../utils/common'
 import { prismaCli } from '../config/db'
+import trades from '../mocks/trades.json'
 
 const isTest = env.NODE_ENV === 'test'
 
@@ -61,9 +62,38 @@ export class CcxtService {
           timestamp,
           type: trade.type,
           takerOrMaker: trade.takerOrMaker,
-          userEchangeId: this.userExchangeId,
+          userExchangeId: this.userExchangeId,
+          userId: this.userId,
         }
       }),
+    })
+  }
+
+  async fetchAndStoreSingleTrade() {
+    if (!this.exchange) {
+      throw new ApiError(500, 'Exchange not initialized')
+    }
+    const [trade] = await this.exchange.fetchMyTrades(undefined, undefined, 1)
+    const fee = JSON.stringify(trade.fee)
+    const timestamp = new Date(trade.timestamp)
+    const tradeData = {
+      id: trade.id,
+      amount: trade.amount,
+      cost: trade.cost,
+      datetime: trade.datetime,
+      fee,
+      info: trade.info,
+      order: trade.order,
+      price: trade.price,
+      side: trade.side,
+      symbol: trade.symbol,
+      timestamp,
+      type: trade.type,
+      takerOrMaker: trade.takerOrMaker,
+      userExchangeId: this.userExchangeId,
+    }
+    await prismaCli.trade.create({
+      data: tradeData,
     })
   }
 
@@ -83,7 +113,7 @@ export class CcxtService {
         }
         allTrades = allTrades.concat(trades)
         offset += trades.length
-        await wait(250)
+        await wait(100)
       }
       return allTrades
     }
