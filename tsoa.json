@@ -10,6 +10,16 @@
         "type": "apiKey",
         "name": "token",
         "in": "query"
+      },
+      "basic": {
+        "type": "basic",
+        "name": "basic",
+        "in": "query"
+      },
+      "ccxt": {
+        "type": "apiKey",
+        "name": "ccxt",
+        "in": "query"
       }
     }
   },

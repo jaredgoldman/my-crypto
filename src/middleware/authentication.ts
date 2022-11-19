@@ -1,50 +1,48 @@
 import env from '../config/env'
 import * as express from 'express'
-import * as jwt from 'jsonwebtoken'
 import ApiError from '../utils/ApiError'
-import { DecodedJwt } from '../types/api'
 import { UserService } from '../services/UserService'
-import { User } from '@prisma/client'
+import { KeyService } from '../services/KeyService'
 
-export const expressAuthentication = (
+export const expressAuthentication = async (
   request: express.Request,
   securityName: string,
   scopes: string[] = []
-): Promise<DecodedJwt | { token: string; user: User }> => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      if (securityName === 'jwt') {
-        const token =
-          request.body.token || request.query.token || request.headers['authorization']
-        if (!token) {
-          reject(new ApiError(401, 'Unauthorized'))
-        }
-        jwt.verify(token, env.JWT_SIGNING_SALT, function (err: any, decoded: any) {
-          if (err) {
-            reject(new ApiError(401, 'Unauthorized', true, err))
-          } else {
-            // Check if JWT contains all required scopes
-            // for (let scope of scopes) {
-            //     if (!decoded.scopes.includes(scope)) {
-            //         reject(new Error('JWT does not contain required scope.'))
-            //     }
-            // }
-            resolve(decoded)
-          }
-        })
-      }
+) => {
+  const keyService = new KeyService()
+  const userService = new UserService()
+  const token =
+    request.body.token || request.query.token || request.headers['authorization']
 
-      // if (securityName === 'login') {
-      //   const userService = new UserService()
-      //   const email =
-      //     request.body.email || request.query.email || request.headers['x-email']
-      //   const password =
-      //     request.body.password || request.query.password || request.headers['x-password']
-      //   resolve(await userService.login(email, password))
-      // }
-    } catch (error) {
-      reject(new ApiError(401, 'Unauthorized', true, JSON.stringify(error)))
+  if (securityName === SecurityName.jwt) {
+    return await keyService.verifyJwt(token, env.JWT_SIGNING_SALT)
+  }
+
+  if (securityName === SecurityName.basic) {
+    const { email, password } = getBasicAuth(request)
+    const user = await userService.authenticate(email, password)
+
+    if (!user) {
+      throw new ApiError(401, 'Unauthorized')
     }
-    reject(new ApiError(401, 'Unauthorized', true))
-  })
+    return user
+  }
+  throw new ApiError(401, 'Unauthorized')
+}
+
+const getBasicAuth = (request: express.Request): { email: string; password: string } => {
+  const base64UserPass = request.headers.authorization?.replace('Basic ', '')
+  if (!base64UserPass) {
+    throw new ApiError(401, 'Unauthorized')
+  }
+  const [email, password] = Buffer.from(base64UserPass, 'base64')
+    .toString('ascii')
+    .split(':')
+  return { email, password }
+}
+
+export enum SecurityName {
+  jwt = 'jwt',
+  basic = 'basic',
+  exchange = 'exchange',
 }

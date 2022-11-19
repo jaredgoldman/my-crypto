@@ -32,8 +32,7 @@ export class UserController extends Controller {
   }
 
   @Post('delete')
-  @Tags('secure')
-  @Security('jwt')
+  @Security('basic')
   @SuccessResponse('200', 'Resource deleted succesfully')
   public async delete(@Request() request: Express.Request): Promise<Response<User>> {
     const user = (request as any).user as AuthToken
@@ -42,8 +41,7 @@ export class UserController extends Controller {
   }
 
   @Get('{id}')
-  @Tags('secure')
-  @Security('jwt')
+  @Security('basic')
   @SuccessResponse('200', 'OK')
   public async get(@Path('id') id: string) {
     const data = await this.userService.get(id)
@@ -66,8 +64,7 @@ export class UserController extends Controller {
   }
 
   @Post('logout')
-  @Tags('secure')
-  @Security('jwt')
+  @Security('basic')
   @SuccessResponse('204', 'No Content')
   public async logout(@Request() request: Express.Request): Promise<Response<undefined>> {
     const user = (request as any).user as AuthToken

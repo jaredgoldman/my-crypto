@@ -1,7 +1,7 @@
 import { Exchange } from '@prisma/client'
 import { prismaCli } from '../config/db'
 import { v4 as uuid } from 'uuid'
-import { Paginated } from '@src/types/api'
+import { Paginated } from '../types/api'
 
 export type ExchangeCreationParams = Pick<
   Exchange,

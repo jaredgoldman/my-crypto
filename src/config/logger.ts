@@ -1,5 +1,7 @@
 import pino from 'pino'
 import pinoHttp from 'pino-http'
+import { env } from 'process'
+import { areWeTestingWithJest } from '../utils/common'
 
 const pinoLogger = pino(
   {
@@ -19,23 +21,19 @@ const pinoLogger = pino(
   })
 )
 
-const areWeTestingWithJest = () => {
-  return process.env.JEST_WORKER_ID !== undefined || process.env.NODE_ENV === 'test'
-}
-
-const level = areWeTestingWithJest() ? 'silent' : 'info'
-
 export const httpLogger = pinoHttp({
   logger: pinoLogger,
-  level,
   customLogLevel: (_, res, err) => {
-    if (res.statusCode >= 500 || err) {
-      return 'error'
-    }
-    if (res.statusCode >= 400) {
-      return 'warn'
-    }
-    return 'info'
+    // if (areWeTestingWithJest()) {
+    //   return 'silent'
+    // }
+    // if (res.statusCode >= 500 || err) {
+    //   return 'error'
+    // }
+    // if (res.statusCode >= 400) {
+    //   return 'warn'
+    // }
+    return 'silent'
   },
 })
 
