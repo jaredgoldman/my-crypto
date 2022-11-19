@@ -37,15 +37,24 @@ export class UserExchangeService {
     })
 
     // Check if exchange can be initilized - will throw error if not
-    new CcxtService(exchange.name.toLowerCase(), apiKey, apiSecret, userId)
 
-    return await prismaCli.userExchange.create({
+    const userExchange = await prismaCli.userExchange.create({
       data: {
         userId,
         exchangeId,
         userExchangeKeyId: userExchangeKey.id,
       },
     })
+
+    new CcxtService(
+      exchange.name.toLowerCase(),
+      apiKey,
+      apiSecret,
+      userId,
+      userExchange.id
+    )
+
+    return userExchange
   }
 
   async delete(id: string): Promise<any> {

@@ -31,20 +31,35 @@ export class UserController extends Controller {
     return { data: { user, token }, message: ResponseMessage.success }
   }
 
-  @Post('delete')
+  @Post('delete/{id}')
   @Security('basic')
   @SuccessResponse('200', 'Resource deleted succesfully')
-  public async delete(@Request() request: Express.Request): Promise<Response<User>> {
-    const user = (request as any).user as AuthToken
-    const userData = await this.userService.delete(user.sub)
+  public async delete(
+    @Request() request: Express.Request,
+    @Path('id') id: string
+  ): Promise<Response<User>> {
+    const user = (request as any).user as User
+
+    // TODO: Check if user is admin
+    if (user.id !== id) {
+      throw new ApiError(403, 'Forbidden')
+    }
+    const userData = await this.userService.delete(id)
     return { data: userData, message: ResponseMessage.success }
   }
 
   @Get('{id}')
   @Security('basic')
   @SuccessResponse('200', 'OK')
-  public async get(@Path('id') id: string) {
+  public async get(@Path('id') id: string, @Request() request: Express.Request) {
+    const user = (request as any).user as User
+
+    if (user.id !== id) {
+      throw new ApiError(403, 'Forbidden')
+    }
+
     const data = await this.userService.get(id)
+
     if (data) {
       return { data, message: ResponseMessage.success }
     }
@@ -67,8 +82,8 @@ export class UserController extends Controller {
   @Security('basic')
   @SuccessResponse('204', 'No Content')
   public async logout(@Request() request: Express.Request): Promise<Response<undefined>> {
-    const user = (request as any).user as AuthToken
-    await this.userService.logout(user.sub)
+    const user = (request as any).user as User
+    await this.userService.logout(user.id)
     return { data: undefined, message: ResponseMessage.success }
   }
 }

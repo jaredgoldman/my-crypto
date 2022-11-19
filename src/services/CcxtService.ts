@@ -72,7 +72,6 @@ export class CcxtService {
       throw new ApiError(500, 'Exchange not initialized')
     }
     if (this.exchange.has['fetchTrades']) {
-      let since = this.exchange.parse8601('2011-01-01T00:00:00Z')
       let allTrades: any[] = []
       let offset = 0
       while (true) {

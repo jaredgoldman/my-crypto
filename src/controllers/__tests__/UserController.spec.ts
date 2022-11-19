@@ -6,7 +6,7 @@ import { prismaCli } from '../../config/db'
 import { v4 as uuid } from 'uuid'
 import { UserService } from '../../services/UserService'
 import { getUserData } from '../../mocks/utils'
-import { randEmail, randFullName } from '@ngneat/falso'
+import bcrypt from 'bcrypt'
 
 const userService = new UserService()
 
@@ -36,46 +36,78 @@ describe('POST /user', () => {
 })
 
 describe('POST /user/delete', () => {
+  const userData = getUserData()
+  const userData2 = getUserData()
+  let user: User
+  let user2: User
   beforeAll(async () => {
-    await prismaCli.user.create({
-      data: {
-        id: mockAuthData.userId,
-        email: randEmail(),
-        name: randFullName(),
-      },
-    })
+    user = await userService.create(userData)
+    user2 = await userService.create(userData2)
   })
 
   test('should return a 200 status', async () => {
     await request(app)
-      .post(`/user/delete`)
-      .set('Authorization', mockAuthData.jwt)
+      .post(`/user/delete/${user.id}`)
+      .set(
+        'Authorization',
+        `Basic ${Buffer.from(`${userData.email}:${userData.password}`).toString(
+          'base64'
+        )}`
+      )
       .expect(200)
-    const deletedUser = await userService.get(mockAuthData.userId)
+
+    const deletedUser = await userService.get(user.id)
     expect(deletedUser).toBeNull()
+  })
+
+  test('should return a 403 if a user is requesting a user other than themselves', async () => {
+    await request(app)
+      .post(`/user/delete/${uuid()}`)
+      .set(
+        'Authorization',
+        `Basic ${Buffer.from(`${userData2.email}:${userData2.password}`).toString(
+          'base64'
+        )}`
+      )
+      .expect(403)
+  })
+
+  afterAll(async () => {
+    await userService.delete(user2.id)
   })
 })
 
 describe('GET /user/{userId}', () => {
+  const userData = getUserData()
   let user: User
   beforeAll(async () => {
-    user = await userService.create(getUserData())
+    user = await userService.create(userData)
   })
   test('should return the correct user', async () => {
     return await request(app)
       .get(`/user/${user.id}`)
-      .set('Authorization', mockAuthData.jwt)
+      .set(
+        'Authorization',
+        `Basic ${Buffer.from(`${userData.email}:${userData.password}`).toString(
+          'base64'
+        )}`
+      )
       .expect(res => {
         expect(res.body.data.id).toBe(user.id)
         expect(res.body.data.email).toBe(user.email)
       })
   })
 
-  test('should return a 404 if user not found', async () => {
+  test('should return a 403 if user is requesting anyone other than themselves', async () => {
     return await request(app)
       .get(`/user/${uuid()}`)
-      .set('Authorization', mockAuthData.jwt)
-      .expect(404)
+      .set(
+        'Authorization',
+        `Basic ${Buffer.from(`${userData.email}:${userData.password}`).toString(
+          'base64'
+        )}`
+      )
+      .expect(403)
   })
 
   afterAll(async () => {
@@ -110,26 +142,25 @@ describe('POST /user/login', () => {
 })
 
 describe('POST /user/logout', () => {
+  const userData = getUserData()
   let user: User
   beforeAll(async () => {
-    user = await prismaCli.user.create({
-      data: {
-        id: mockAuthData.userId,
-        email: 'test',
-        status: Status.ACTIVE,
-        name: 'test',
-      },
-    })
+    user = await userService.create(userData)
   })
 
   test('should return a 204', async () => {
     await request(app)
       .post('/user/logout')
-      .set('Authorization', mockAuthData.jwt)
+      .set(
+        'Authorization',
+        `Basic ${Buffer.from(`${userData.email}:${userData.password}`).toString(
+          'base64'
+        )}`
+      )
       .expect(204)
 
     const loggedOutUser = await prismaCli.user.findUnique({
-      where: { id: mockAuthData.userId },
+      where: { id: user.id },
     })
 
     expect(loggedOutUser?.status).toBe(Status.INACTIVE)
