@@ -1,5 +1,5 @@
 import { Controller, Route, Security, Request, Get, Path } from 'tsoa'
-import { CcxtService } from '../services/CcxtService'
+import { createCcxtExchange } from '../services/CcxtService'
 import { UserExchangeService } from '../services/UserExchangeService'
 import { User } from '@prisma/client'
 
@@ -13,16 +13,7 @@ export class CcxtController extends Controller {
     @Path() userExchangeId: string
   ) {
     const user = (request as any).user as User
-    const { key, secret, exchangeName } =
-      await this.userExchangeService.getUserExchangeKeys(userExchangeId, user.id)
-
-    const ccxtService = new CcxtService(
-      exchangeName,
-      key,
-      secret,
-      user.id,
-      userExchangeId
-    )
+    const ccxtService = await createCcxtExchange(userExchangeId, user.id)
     await ccxtService.fetchAndStoreUserExchangeData()
     return { data: user, message: 'success' }
   }

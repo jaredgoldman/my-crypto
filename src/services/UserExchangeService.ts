@@ -48,6 +48,7 @@ export class UserExchangeService {
 
     new CcxtService(
       exchange.name.toLowerCase(),
+      exchangeId,
       apiKey,
       apiSecret,
       userId,
@@ -122,7 +123,7 @@ export class UserExchangeService {
   async getUserExchangeKeys(
     id: string,
     userId: string
-  ): Promise<{ key: string; secret: string; exchangeName: string }> {
+  ): Promise<{ key: string; secret: string; exchangeName: string; exchangeId: string }> {
     const userExchange = await prismaCli.userExchange.findUnique({
       where: { id },
       include: { userExchangeKey: true, exchange: true },
@@ -144,6 +145,7 @@ export class UserExchangeService {
       key: decryptedKey,
       secret: decryptedSecret,
       exchangeName: userExchange.exchange.name,
+      exchangeId: userExchange.exchange.id,
     }
   }
 }
