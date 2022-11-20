@@ -23,7 +23,8 @@ export class CcxtService {
     apiKey: string,
     secretKey: string,
     userId: string,
-    userExchangeId: string
+    userExchangeId: string,
+    test: boolean = isTest
   ) {
     this.exchangeName = exchangeName.toLowerCase() as ExchangeId
     this.exchangeId = exchangeId
@@ -31,14 +32,14 @@ export class CcxtService {
     this.secretKey = secretKey
     this.userId = userId
     this.userExchangeId = userExchangeId
-
     this.exchange = new ccxt[this.exchangeName]({
       apiKey: this.apiKey,
       secret: this.secretKey,
       enableRateLimit: true,
     })
+    this.exchange.setSandboxMode(test)
 
-    if (!isTest) {
+    if (!test) {
       if (!ccxt.exchanges.includes(this.exchangeName)) {
         throw new ApiError(400, 'Invalid exchange name')
       }
