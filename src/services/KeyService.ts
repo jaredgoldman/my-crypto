@@ -1,6 +1,8 @@
 import env from '../config/env'
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 import { createCipheriv, createDecipheriv, randomBytes } from 'node:crypto'
+import ApiError from '../utils/ApiError'
 
 interface HashedKey {
   iv: string
@@ -49,5 +51,17 @@ export class KeyService {
     ])
 
     return decrpyted.toString()
+  }
+
+  public verifyJwt(token: string, secret: string): Promise<string | object> {
+    return new Promise((resolve, reject) => {
+      jwt.verify(token, secret, function (err: any, decoded: any) {
+        if (err) {
+          reject(new ApiError(401, 'Unauthorized', true, err))
+        } else {
+          resolve(decoded)
+        }
+      })
+    })
   }
 }

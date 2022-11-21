@@ -11,15 +11,15 @@ datasource db {
 }
 
 model Exchange {
-  id              String            @id @default(uuid()) @db.Uuid
-  name            String            @unique
-  displayName     String
-  url             String
-  image           String
-  status          Status            @default(ACTIVE)
-  userExchanges   UserExchange[]
-  UserExchangeKey UserExchangeKey[]
-  Transaction     Transaction[]
+  id               String             @id @default(uuid()) @db.Uuid
+  name             String             @unique
+  displayName      String
+  url              String
+  image            String
+  status           Status             @default(ACTIVE)
+  userExchanges    UserExchange[]
+  UserExchangeKey  UserExchangeKey[]
+  ExchangeCurrency ExchangeCurrency[]
 }
 
 // TODO: Create seperate table for hashed user secrets
@@ -32,6 +32,8 @@ model User {
   updatedAt       DateTime          @updatedAt
   userExchanges   UserExchange[]
   UserExchangeKey UserExchangeKey[]
+  Trade           Trade[]
+  CoinAccount     CoinAccount[]
 }
 
 model UserSecret {
@@ -39,8 +41,8 @@ model UserSecret {
   userId    String   @unique @db.Uuid
   secret    String
   status    Status   @default(ACTIVE)
-  createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
 }
 
 enum Status {
@@ -59,7 +61,8 @@ model UserExchange {
   createdAt         DateTime        @default(now())
   updatedAt         DateTime        @updatedAt
   status            Status          @default(ACTIVE)
-  Transaction       Transaction[]
+  Trade             Trade[]
+  CoinAccount       CoinAccount[]
 }
 
 model UserExchangeKey {
@@ -78,31 +81,68 @@ model UserExchangeKey {
   userExchange UserExchange?
 }
 
-model Transaction {
-  id              String          @id @default(uuid()) @db.Uuid
-  userExchange    UserExchange    @relation(fields: [userExchangeId], references: [id])
-  userExchangeId  String          @db.Uuid
-  exchange        Exchange        @relation(fields: [exchangeId], references: [id])
-  exchangeId      String          @db.Uuid
-  type            TransactionType
-  amount          Float
-  currency        String
-  fee             Float
-  feeCurrency     String
-  status          Status          @default(ACTIVE)
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
-  externalId      String
-  externalData    Json
-  externalStatus  String
-  externalMessage String
-
-  @@unique([userExchangeId, externalId])
+model Trade {
+  amount         Float
+  datetime       String
+  id             String        @unique
+  info           Json
+  order          String?
+  price          Float
+  timestamp      DateTime
+  type           String?
+  side           Side
+  symbol         String
+  takerOrMaker   TakerOrMaker?
+  cost           Float
+  fee            Json
+  fees           Json
+  UserExchange   UserExchange? @relation(fields: [userExchangeId], references: [id])
+  userExchangeId String?       @db.Uuid
+  User           User?         @relation(fields: [userId], references: [id])
+  userId         String?       @db.Uuid
 }
 
-enum TransactionType {
-  DEPOSIT
-  WITHDRAWAL
-  TRADE
-  TRANSFER
+model CoinAccount {
+  id             String        @id @default(uuid()) @db.Uuid
+  coin           String
+  free           Float?
+  used           Float?
+  total          Float
+  UserExchange   UserExchange? @relation(fields: [userExchangeId], references: [id])
+  userExchangeId String?       @db.Uuid
+  User           User?         @relation(fields: [userId], references: [id])
+  userId         String?       @db.Uuid
+}
+
+model ExchangeCurrency {
+  id           String       @id @default(uuid()) @db.Uuid
+  name         String
+  code         String       @unique
+  info         Json
+  active       Boolean
+  deposit      Boolean?
+  withdraw     Boolean?
+  fee          Float?
+  precision    Float?
+  limits       Json
+  currencyType CurrencyType
+  exchange     Exchange     @relation(fields: [exchangeId], references: [id])
+  exchangeId   String       @db.Uuid
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+}
+
+enum CurrencyType {
+  FIAT
+  CRYPTO
+}
+
+enum Side {
+  buy
+  sell
+}
+
+enum TakerOrMaker {
+  taker
+  maker
 }

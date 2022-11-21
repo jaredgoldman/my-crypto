@@ -3,11 +3,23 @@ import { Response, ResponseMessage } from '../types/api'
 
 @Tags('security')
 @Route('secure')
-@Security('jwt')
 @SuccessResponse('200', 'OK')
 export class SecurityController extends Controller {
   @Get()
-  public async checkIfSecure(@Request() request: any): Promise<Response<undefined>> {
-    return { data: request.user, message: ResponseMessage.success }
+  @Security('jwt')
+  public async checkIfSecure(
+    @Request() request: Express.Request
+  ): Promise<Response<undefined>> {
+    const user = (request as any).user
+    return { data: user, message: ResponseMessage.success }
+  }
+
+  @Get('basic')
+  @Security('basic')
+  public async checkIfSecureBasic(
+    @Request() request: Express.Request
+  ): Promise<Response<undefined>> {
+    const user = (request as any).user
+    return { data: user, message: ResponseMessage.success }
   }
 }

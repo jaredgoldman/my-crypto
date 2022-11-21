@@ -5,6 +5,8 @@ import jwt from 'jsonwebtoken'
 import env from '../config/env'
 import bcrypt from 'bcrypt'
 import ApiError from '../utils/ApiError'
+import { KeyService } from './KeyService'
+import { UserSecret } from '@prisma/client'
 
 export interface UserCreateParams {
   email: string
@@ -13,6 +15,8 @@ export interface UserCreateParams {
 }
 
 export class UserService {
+  private keyService = new KeyService()
+
   async create(params: UserCreateParams): Promise<User> {
     const existingUser = await prismaCli.user.findUnique({
       where: { email: params.email },
@@ -56,6 +60,25 @@ export class UserService {
         id,
       },
     })
+  }
+
+  async authenticate(email: string, password: string): Promise<User | void> {
+    const user = await prismaCli.user.findUnique({
+      where: { email: email },
+    })
+
+    if (!user) {
+      throw new ApiError(404, 'User not found')
+    }
+
+    const userSecret = (await prismaCli.userSecret.findUnique({
+      where: { userId: user.id },
+    })) as UserSecret
+
+    const isPasswordValid = await this.keyService.compare(password, userSecret.secret)
+    if (isPasswordValid) {
+      return user
+    }
   }
 
   async generateSessionToken(user: User): Promise<string> {

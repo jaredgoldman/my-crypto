@@ -1,10 +1,9 @@
-import { Exchange, UserExchange } from '@prisma/client'
 import { prismaCli } from '../config/db'
-import { v4 as uuid } from 'uuid'
+import { Exchange, UserExchange } from '@prisma/client'
 import { Paginated } from '../types/api'
 import ApiError from '../utils/ApiError'
 import { KeyService } from './KeyService'
-import { CcxtService } from './CcxtService'
+import { CcxtRestService } from './CcxtRestService'
 
 export class UserExchangeService {
   private keyService = new KeyService()
@@ -37,21 +36,26 @@ export class UserExchangeService {
       },
     })
 
-    // const ccxtExchange = new CcxtService(
-    //   exchange.name.toLocaleLowerCase(),
-    //   apiKey,
-    //   apiSecret
-    // )
+    // Check if exchange can be initilized - will throw error if not
 
-    // await ccxtExchange.initializeExchange()
-
-    return await prismaCli.userExchange.create({
+    const userExchange = await prismaCli.userExchange.create({
       data: {
         userId,
         exchangeId,
         userExchangeKeyId: userExchangeKey.id,
       },
     })
+
+    new CcxtRestService(
+      exchange.name.toLowerCase(),
+      exchangeId,
+      apiKey,
+      apiSecret,
+      userId,
+      userExchange.id
+    )
+
+    return userExchange
   }
 
   async delete(id: string): Promise<any> {
@@ -69,7 +73,6 @@ export class UserExchangeService {
         throw new ApiError(404, 'User exchange not found')
       }
     } catch (error) {
-      console.log(error)
       throw new ApiError(404, 'User exchange not found')
     }
   }
@@ -115,5 +118,34 @@ export class UserExchangeService {
     }
 
     return userExchanges
+  }
+
+  async getUserExchangeKeys(
+    id: string,
+    userId: string
+  ): Promise<{ key: string; secret: string; exchangeName: string; exchangeId: string }> {
+    const userExchange = await prismaCli.userExchange.findUnique({
+      where: { id },
+      include: { userExchangeKey: true, exchange: true },
+    })
+
+    if (!userExchange || userExchange.userId !== userId) {
+      throw new ApiError(404, 'User exchange not found')
+    }
+
+    const { key, keyIv, secret, secretIv } = userExchange.userExchangeKey
+
+    const decryptedKey = this.keyService.decrypt({ encryptedKey: key, iv: keyIv })
+    const decryptedSecret = this.keyService.decrypt({
+      encryptedKey: secret,
+      iv: secretIv,
+    })
+
+    return {
+      key: decryptedKey,
+      secret: decryptedSecret,
+      exchangeName: userExchange.exchange.name,
+      exchangeId: userExchange.exchange.id,
+    }
   }
 }
