@@ -8,7 +8,7 @@ import { User } from '@prisma/client'
 @Route('crypto/{userExchangeId}')
 export class CcxtController extends Controller {
   public userExchangeService = new UserExchangeService()
-  @Get()
+  @Get('refresh')
   public async refreshData(
     @Request() request: Express.Request,
     @Path() userExchangeId: string
@@ -16,6 +16,6 @@ export class CcxtController extends Controller {
     const user = (request as any).user as User
     const CcxtRestService = await createCcxtExchange(userExchangeId, user.id)
     await CcxtRestService.fetchAndStoreUserExchangeData()
-    return { data: user, message: 'success' }
+    return { data: 'Refreshed user exchange data', message: 'success' }
   }
 }

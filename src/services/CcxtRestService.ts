@@ -90,6 +90,7 @@ export class CcxtRestService {
       await prismaCli.trade.createMany({
         // @ts-ignore
         data: trades,
+        skipDuplicates: true,
       })
     } else {
       throw new ApiError(400, 'Exchange does not support fetching trades')
@@ -130,6 +131,7 @@ export class CcxtRestService {
         userId: this.userId,
         userExchangeId: this.userExchangeId,
       })),
+      skipDuplicates: true,
     })
   }
 
