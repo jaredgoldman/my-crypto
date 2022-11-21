@@ -96,6 +96,7 @@ model Trade {
   cost           Float
   fee            Json
   fees           Json
+  exchangeName   String
   UserExchange   UserExchange? @relation(fields: [userExchangeId], references: [id])
   userExchangeId String?       @db.Uuid
   User           User?         @relation(fields: [userId], references: [id])

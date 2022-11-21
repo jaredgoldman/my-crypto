@@ -99,6 +99,7 @@ export class CcxtRestService {
   private formatTrade(trade: CcxtTrade): Trade {
     return {
       ...trade,
+      exchangeName: this.exchangeName,
       fees: JSON.stringify((trade as any).fees),
       userId: this.userId,
       userExchangeId: this.userExchangeId,

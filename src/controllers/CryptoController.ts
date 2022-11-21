@@ -1,9 +1,10 @@
-import { Controller, Route, Security, Request, Get, Path } from 'tsoa'
+import { Controller, Route, Security, Request, Get, Path, Tags } from 'tsoa'
 import { createCcxtExchange } from '../services/CcxtRestService'
 import { UserExchangeService } from '../services/UserExchangeService'
 import { User } from '@prisma/client'
 
 @Security('basic')
+@Tags('crypto')
 @Route('crypto/{userExchangeId}')
 export class CcxtController extends Controller {
   public userExchangeService = new UserExchangeService()

@@ -1,9 +1,10 @@
-import { Controller, Path, Post, Route, Security, SuccessResponse } from 'tsoa'
+import { Controller, Path, Post, Route, Security, SuccessResponse, Tags } from 'tsoa'
 import { TradeService } from '../services/TradeService'
 import { CsvService } from '../services/CsvService'
 import { Response, ResponseMessage } from '../types/api'
 
 @Security('basic')
+@Tags('csv')
 @Route('csv')
 export class CsvController extends Controller {
   private csvService = new CsvService()
