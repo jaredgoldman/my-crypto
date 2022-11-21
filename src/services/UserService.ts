@@ -1,8 +1,5 @@
 import { prismaCli } from '../config/db'
 import { User, Status } from '@prisma/client'
-import { v4 as uuid } from 'uuid'
-import jwt from 'jsonwebtoken'
-import env from '../config/env'
 import bcrypt from 'bcrypt'
 import ApiError from '../utils/ApiError'
 import { KeyService } from './KeyService'
@@ -81,15 +78,6 @@ export class UserService {
     }
   }
 
-  async generateSessionToken(user: User): Promise<string> {
-    const { id, email } = user
-    const secret = env.JWT_SIGNING_SALT
-    const token = jwt.sign({ sub: id, email }, secret, {
-      expiresIn: '10d',
-    })
-    return token
-  }
-
   async login(email: string, password: string): Promise<{ token: string; user: User }> {
     const maybeUser = await prismaCli.user.findUnique({
       where: { email },
@@ -112,7 +100,7 @@ export class UserService {
           where: { id: maybeUser.id },
           data: { status: Status.ACTIVE },
         })
-        const token = await this.generateSessionToken(user)
+        const token = this.keyService.generateSessionToken(user)
         return { token, user }
       } else {
         throw new ApiError(401, 'Invalid email or password')

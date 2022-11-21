@@ -1,11 +1,11 @@
 import { Controller, Get, Route, Security, SuccessResponse, Tags, Request } from 'tsoa'
 import { Response, ResponseMessage } from '../types/api'
 
-@Tags('security')
 @Route('secure')
 @SuccessResponse('200', 'OK')
 export class SecurityController extends Controller {
   @Get()
+  @Tags('security')
   @Security('jwt')
   public async checkIfSecure(
     @Request() request: Express.Request
@@ -15,6 +15,7 @@ export class SecurityController extends Controller {
   }
 
   @Get('basic')
+  @Tags('security')
   @Security('basic')
   public async checkIfSecureBasic(
     @Request() request: Express.Request

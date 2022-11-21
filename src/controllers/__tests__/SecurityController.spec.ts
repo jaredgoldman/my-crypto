@@ -1,14 +1,22 @@
 import request from 'supertest'
 import { app } from '../../app'
 import { UserService } from '../../services/UserService'
-import mockAuthData from '../../mocks/auth.json'
 import { getUserData } from '../../mocks/utils'
+import { KeyService } from '../../services/KeyService'
+import { User } from '@prisma/client'
 
 const userService = new UserService()
+const keyService = new KeyService()
 
 describe('GET /secure', () => {
+  let user: User
+  let jwt = ''
+  beforeAll(async () => {
+    user = await userService.create(getUserData())
+    jwt = keyService.generateSessionToken(user)
+  })
   test('should return 200 OK with auth', () => {
-    return request(app).get('/secure').set('Authorization', mockAuthData.jwt).expect(200)
+    return request(app).get('/secure').set('Authorization', jwt).expect(200)
   })
 
   test('should return 401 Unauthorized without auth', () => {

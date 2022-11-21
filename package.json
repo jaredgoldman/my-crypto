@@ -8,7 +8,7 @@
     "email": "jaredgoldmandev@gmail.com"
   },
   "scripts": {
-    "dev": "yarn seed && yarn migrate:local && concurrently  \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
+    "dev": "yarn migrate:local && yarn seed && concurrently  \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
     "build": "yarn migrate:local && tsoa spec-and-routes && tsc",
     "migrate:local": "prisma db push",
     "format": "prisma format",

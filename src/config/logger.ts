@@ -2,25 +2,29 @@ import pino from 'pino'
 import pinoHttp from 'pino-http'
 import { areWeTestingWithJest } from '../utils/common'
 
-const pinoLogger = pino(
-  {
-    formatters: {
-      level: label => {
-        return { level: label }
-      },
-    },
-  },
-  pino.transport({
-    target: 'pino-pretty',
-    options: {
-      colorize: true,
-      ignore: 'pid,hostname',
-      translateTime: 'yyyy-mm-dd HH:MM:ss.l',
-    },
-  })
-)
+const testPino = pino({ level: 'silent' })
 
-export const httpLogger = pinoHttp({
+const pinoLogger = areWeTestingWithJest()
+  ? testPino
+  : pino(
+      {
+        formatters: {
+          level: label => {
+            return { level: label }
+          },
+        },
+      },
+      pino.transport({
+        target: 'pino-pretty',
+        options: {
+          colorize: true,
+          ignore: 'pid,hostname',
+          translateTime: 'yyyy-mm-dd HH:MM:ss.l',
+        },
+      })
+    )
+
+const httpLogger = pinoHttp({
   logger: pinoLogger,
   customLogLevel: (_, res, err) => {
     if (areWeTestingWithJest()) {
@@ -54,3 +58,5 @@ export class Logger {
 export const initLog = async (): Promise<string> => {
   return 'Database connection has been established successfully.'
 }
+
+export default httpLogger

@@ -1,4 +1,5 @@
 import { UserCreateParams, UserService } from '../services/UserService'
+import { KeyService } from '../services/KeyService'
 import { User } from '@prisma/client'
 import { Response, ResponseMessage } from '../types/api'
 import {
@@ -14,12 +15,12 @@ import {
   SuccessResponse,
 } from 'tsoa'
 import ApiError from '../utils/ApiError'
-import { AuthToken } from '../types/client'
 
 @Route('user')
 @Tags('user')
 export class UserController extends Controller {
   private userService = new UserService()
+  private keyService = new KeyService()
 
   @Post()
   @SuccessResponse('200', 'OK')
@@ -27,7 +28,7 @@ export class UserController extends Controller {
     @Body() requestBody: UserCreateParams
   ): Promise<Response<{ user: User; token: string }>> {
     const user = await this.userService.create(requestBody)
-    const token = await this.userService.generateSessionToken(user)
+    const token = this.keyService.generateSessionToken(user)
     return { data: { user, token }, message: ResponseMessage.success }
   }
 

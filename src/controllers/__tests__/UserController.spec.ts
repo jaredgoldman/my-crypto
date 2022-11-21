@@ -1,12 +1,10 @@
 import request from 'supertest'
 import { app } from '../../app'
-import mockAuthData from '../../mocks/auth.json'
 import { Status, User } from '@prisma/client'
 import { prismaCli } from '../../config/db'
 import { v4 as uuid } from 'uuid'
 import { UserService } from '../../services/UserService'
 import { getUserData } from '../../mocks/utils'
-import bcrypt from 'bcrypt'
 
 const userService = new UserService()
 

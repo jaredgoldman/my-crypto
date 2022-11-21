@@ -26,7 +26,7 @@ export class CcxtRestService {
     userExchangeId: string,
     test: boolean = isTest
   ) {
-    this.exchangeName = exchangeName.toLowerCase() as ExchangeId
+    this.exchangeName = isTest ? 'kraken' : (exchangeName.toLowerCase() as ExchangeId)
     this.exchangeId = exchangeId
     this.apiKey = apiKey
     this.secretKey = secretKey
@@ -37,7 +37,6 @@ export class CcxtRestService {
       secret: this.secretKey,
       enableRateLimit: true,
     })
-    this.exchange.setSandboxMode(test)
 
     if (!test) {
       if (!ccxt.exchanges.includes(this.exchangeName)) {

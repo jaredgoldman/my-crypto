@@ -1,6 +1,7 @@
 import env from '../config/env'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
+import { User } from '@prisma/client'
 import { createCipheriv, createDecipheriv, randomBytes } from 'node:crypto'
 import ApiError from '../utils/ApiError'
 
@@ -63,5 +64,14 @@ export class KeyService {
         }
       })
     })
+  }
+
+  public generateSessionToken(user: User): string {
+    const { id, email } = user
+    const secret = env.JWT_SIGNING_SALT
+    const token = jwt.sign({ sub: id, email }, secret, {
+      expiresIn: '10d',
+    })
+    return token
   }
 }

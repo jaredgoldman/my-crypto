@@ -1,9 +1,11 @@
 import { UserService } from '../UserService'
+import { KeyService } from '../../services/KeyService'
 import { getUserData } from '../../mocks/utils'
 import { prismaCli } from '../../config/db'
 import { Status, User } from '@prisma/client'
 
 const userService = new UserService()
+const keyService = new KeyService()
 
 const userData = getUserData()
 let user: User
@@ -25,7 +27,7 @@ describe('user service', () => {
     expect(foundUser.user.status).toBe(Status.ACTIVE)
   })
   test('should generate a session token', async () => {
-    const token = await userService.generateSessionToken(user)
+    const token = keyService.generateSessionToken(user)
     expect(token).toBeDefined()
   })
   test('should log a user out', async () => {

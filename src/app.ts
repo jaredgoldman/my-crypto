@@ -1,7 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express'
 import bodyParser from 'body-parser'
 import { RegisterRoutes } from '../build/routes'
-import { httpLogger, Logger } from './config/logger'
+import httpLogger, { Logger } from './config/logger'
 import swaggerUi from 'swagger-ui-express'
 import { ValidateError } from 'tsoa'
 import swagger from '../build/swagger.json'
@@ -54,12 +54,14 @@ app.use(function errorHandler(
 
   if (err instanceof ApiError) {
     Logger.warn(`Caught API Error for ${req.path}:`, err)
-    return res.status(err.statusCode)
+    return res.status(err.statusCode).json(err.toJson())
   }
 
   if (err instanceof Error) {
     Logger.warn(`Caught Error for ${req.path}:`, err)
-    return res.status(500).json({ message: 'Internal Server Error' })
+    return res.status(500).json({
+      message: err.message || 'Internal Server Error',
+    })
   }
 
   next()

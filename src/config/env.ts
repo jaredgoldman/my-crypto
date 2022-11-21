@@ -1,4 +1,5 @@
 import * as dotenv from 'dotenv'
+import * as envalid from 'envalid'
 dotenv.config()
 
 type EnvConfig = {
@@ -14,21 +15,44 @@ type EnvConfig = {
   PINO_LOG_LEVEL?: string
 }
 
-const getEnv = (): EnvConfig => {
-  return {
-    port: parseInt(process.env.PORT || '8080', 10),
-    DATABASE_URL: process.env.DATABASE_URL || '',
-    JWT_SIGNING_SALT: process.env.JWT_SIGNING_SALT || '',
-    ENCRYPTION_KEY: process.env.ENCRYPTION_KEY || '',
-    ENCRYPTION_SALT: process.env.ENCRYPTION_SALT || '',
-    TEST_API_KEY: process.env.TEST_API_KEY || '',
-    TEST_API_SECRET: process.env.TEST_API_SECRET || '',
-    NODE_ENV: process.env.NODE_ENV || 'development',
-    JEST_WORKER_ID: process.env.JEST_WORKER_ID || undefined,
-    PINO_LOG_LEVEL: process.env.PINO_LOG_LEVEL || 'info',
-  }
-}
+const env = envalid.cleanEnv(process.env, {
+  port: envalid.port({
+    default: 8080,
+    desc: 'The port the server will listen on',
+  }),
+  DATABASE_URL: envalid.str({
+    desc: 'The database url',
+  }),
+  JWT_SIGNING_SALT: envalid.str({
+    desc: 'The salt used to sign the JWT',
+    default: 'salt',
+  }),
+  ENCRYPTION_KEY: envalid.str({
+    desc: 'The key used to encrypt the user API key and secret',
+    default: 'key',
+  }),
+  ENCRYPTION_SALT: envalid.str({
+    desc: 'The salt used to encrypt the user API key and secret',
+    default: 'salt',
+  }),
+  TEST_API_KEY: envalid.str({
+    desc: 'The test API key',
+  }),
+  TEST_API_SECRET: envalid.str({
+    desc: 'The test API secret',
+  }),
+  NODE_ENV: envalid.str({
+    desc: 'The environment the server is running in',
+    default: 'development',
+  }),
+  JEST_WORKER_ID: envalid.str({
+    default: undefined,
+  }),
+  PINO_LOG_LEVEL: envalid.str({
+    desc: 'The log level for pino',
+    choices: ['info', 'debug', 'trace', 'warn', 'error', 'fatal'],
+    default: 'info',
+  }),
+})
 
-const env: EnvConfig = getEnv()
-
-export default env
+export default env as EnvConfig
