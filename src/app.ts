@@ -53,15 +53,13 @@ app.use(function errorHandler(
   }
 
   if (err instanceof ApiError) {
-    Logger.debug(`Caught API Error for ${req.path}:`, err)
-    return res.status(err.statusCode).json(err.toJson())
+    Logger.warn(`Caught API Error for ${req.path}:`, err)
+    return res.status(err.statusCode)
   }
 
   if (err instanceof Error) {
-    Logger.debug(`Caught Error for ${req.path}:`, err)
-    return res.status(500).json({
-      message: err.message || 'Internal Server Error',
-    })
+    Logger.warn(`Caught Error for ${req.path}:`, err)
+    return res.status(500).json({ message: 'Internal Server Error' })
   }
 
   next()

@@ -3,7 +3,7 @@ import { Exchange, UserExchange } from '@prisma/client'
 import { Paginated } from '../types/api'
 import ApiError from '../utils/ApiError'
 import { KeyService } from './KeyService'
-import { CcxtService } from './CcxtService'
+import { CcxtRestService } from './CcxtRestService'
 
 export class UserExchangeService {
   private keyService = new KeyService()
@@ -46,7 +46,7 @@ export class UserExchangeService {
       },
     })
 
-    new CcxtService(
+    new CcxtRestService(
       exchange.name.toLowerCase(),
       exchangeId,
       apiKey,

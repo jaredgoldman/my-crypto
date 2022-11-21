@@ -1,15 +1,15 @@
 import ApiError from '../utils/ApiError'
 import env from '../config/env'
-import ccxt, { ExchangeId, Exchange, Trade as CcxtTrade, Dictionary } from 'ccxt'
+import ccxt, { ExchangeId, Exchange, Trade as CcxtTrade, Dictionary, Order } from 'ccxt'
 import { wait } from '../utils/common'
 import { prismaCli } from '../config/db'
 import { UserExchangeService } from './UserExchangeService'
-import { CurrencyType, ExchangeCurrency, Prisma, Trade } from '@prisma/client'
+import { CurrencyType, ExchangeCurrency, Trade } from '@prisma/client'
 import { v4 as uuid } from 'uuid'
 
 const isTest = env.NODE_ENV === 'test'
 
-export class CcxtService {
+export class CcxtRestService {
   private exchangeName: ExchangeId
   private apiKey: string
   private secretKey: string
@@ -48,7 +48,6 @@ export class CcxtService {
 
   async fetchAndStoreUserExchangeData(): Promise<void> {
     await this.fetchAndStoreTrades()
-    await this.fetchFormatAndStoreExchangeCurrencies()
     await this.fetchAndStoreBalances()
   }
 
@@ -68,7 +67,7 @@ export class CcxtService {
         exchangeId: this.exchangeId,
       })
     )
-    await prismaCli.exchangeCurrency.createMany({
+    await prismaCli.exchangeCurrency.updateMany({
       data: exchangeCurrencies,
     })
   }
@@ -114,6 +113,7 @@ export class CcxtService {
 
   async fetchAndStoreBalances(): Promise<void> {
     const balances = await this.exchange.fetchBalance()
+    // TODO: figure out a cleaner way to filter data here
     delete balances.info
     delete balances.timestamp
     delete balances.free
@@ -132,11 +132,28 @@ export class CcxtService {
       })),
     })
   }
+
+  async order(
+    symbol: string,
+    type: Order['type'],
+    side: Order['side'],
+    amount: number,
+    price?: number
+  ): Promise<Order> {
+    return await this.exchange.createOrder(symbol, type, side, amount, price)
+  }
 }
 
 export const createCcxtExchange = async (userExchangeId: string, userId: string) => {
   const userExchangeService = new UserExchangeService()
   const { key, secret, exchangeName, exchangeId } =
     await userExchangeService.getUserExchangeKeys(userExchangeId, userId)
-  return new CcxtService(exchangeName, exchangeId, key, secret, userId, userExchangeId)
+  return new CcxtRestService(
+    exchangeName,
+    exchangeId,
+    key,
+    secret,
+    userId,
+    userExchangeId
+  )
 }
