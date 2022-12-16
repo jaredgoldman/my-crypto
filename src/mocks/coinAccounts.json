@@ -1,0 +1,24 @@
+[
+  {
+    "id": "fccc098d-8b3b-4bc8-b683-719182c4f318",
+    "coin": "ALGO",
+    "free": null,
+    "used": null,
+    "total": 2.9,
+    "UserExchange": {},
+    "userExchangeId": "a254034d-429c-43ec-a6fa-b98bed1e0fe6",
+    "User": {},
+    "userId": "3a678856-a602-41a7-b4c0-f8927adee792"
+  },
+  {
+    "id": "fcac098d-8b3c-4bc8-b683-719182c4f318",
+    "coin": "BTC",
+    "free": null,
+    "used": null,
+    "total": 2.9,
+    "UserExchange": {},
+    "userExchangeId": "a254034d-429c-43ec-a6fa-b98bed1e0fe6",
+    "User": {},
+    "userId": "3a678856-a602-41a7-b4c0-f8927adee792"
+  }
+]

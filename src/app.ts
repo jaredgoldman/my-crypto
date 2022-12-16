@@ -7,6 +7,7 @@ import { ValidateError } from 'tsoa'
 import swagger from '../build/swagger.json'
 import { NotFound } from 'http-errors'
 import ApiError from './utils/ApiError'
+import { Server } from 'socket.io'
 
 export const app = express()
 
@@ -65,4 +66,12 @@ app.use(function errorHandler(
   }
 
   next()
+})
+
+const io = new Server({})
+io.on('connection', socket => {
+  console.log('a user connected')
+  socket.on('disconnect', () => {
+    console.log('user disconnected')
+  })
 })

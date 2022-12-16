@@ -11,6 +11,7 @@ type EnvConfig = {
   TEST_API_KEY: string
   TEST_API_SECRET: string
   NODE_ENV: string
+  TEST_EXCHANGE_NAME: string
   JEST_WORKER_ID?: string
   PINO_LOG_LEVEL?: string
 }
@@ -44,6 +45,10 @@ const env = envalid.cleanEnv(process.env, {
   NODE_ENV: envalid.str({
     desc: 'The environment the server is running in',
     default: 'development',
+  }),
+  TEST_EXCHANGE_NAME: envalid.str({
+    desc: 'The exchange name used for testing',
+    default: 'kraken',
   }),
   JEST_WORKER_ID: envalid.str({
     default: undefined,
