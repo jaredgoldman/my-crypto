@@ -113,6 +113,8 @@ model CoinAccount {
   userExchangeId String?       @db.Uuid
   User           User?         @relation(fields: [userId], references: [id])
   userId         String?       @db.Uuid
+
+  @@unique([coin, userId])
 }
 
 model ExchangeCurrency {

@@ -6,10 +6,12 @@ import { prismaCli } from '../config/db'
 import { UserExchangeService } from './UserExchangeService'
 import { CurrencyType, ExchangeCurrency, Trade } from '@prisma/client'
 import { v4 as uuid } from 'uuid'
+import mockTrades from '../mocks/trades.json'
+import mockCoinAccounts from '../mocks/coinAccounts.json'
 
 const isTest = env.NODE_ENV === 'test'
 
-export class CcxtRestService {
+class CcxtRestService {
   private exchangeName: ExchangeId
   private apiKey: string
   private secretKey: string
@@ -47,7 +49,7 @@ export class CcxtRestService {
 
   async fetchAndStoreUserExchangeData(): Promise<void> {
     await this.fetchAndStoreTrades()
-    await this.fetchAndStoreBalances()
+    await this.fetchAndStoreCoinAccounts()
   }
 
   private async fetchFormatAndStoreExchangeCurrencies(): Promise<void> {
@@ -90,6 +92,7 @@ export class CcxtRestService {
       await prismaCli.trade.createMany({
         // @ts-ignore
         data: trades,
+        skipDuplicates: true,
       })
     } else {
       throw new ApiError(400, 'Exchange does not support fetching trades')
@@ -111,9 +114,9 @@ export class CcxtRestService {
     }
   }
 
-  async fetchAndStoreBalances(): Promise<void> {
+  async fetchAndStoreCoinAccounts(): Promise<void> {
     const balances = await this.exchange.fetchBalance()
-    // TODO: figure out a cleaner way to filter data here
+    // delete irrelevent keys
     delete balances.info
     delete balances.timestamp
     delete balances.free
@@ -130,6 +133,7 @@ export class CcxtRestService {
         userId: this.userId,
         userExchangeId: this.userExchangeId,
       })),
+      skipDuplicates: true,
     })
   }
 
@@ -144,16 +148,76 @@ export class CcxtRestService {
   }
 }
 
-export const createCcxtExchange = async (userExchangeId: string, userId: string) => {
+class MockCcxtRestService {
+  private exchangeName: ExchangeId
+  private apiKey: string
+  private secretKey: string
+  private exchangeId: string
+  private userId: string
+  private userExchangeId: string
+  private exchange: Exchange
+  constructor(
+    exchangeName: string,
+    exchangeId: string,
+    apiKey: string,
+    secretKey: string,
+    userId: string,
+    userExchangeId: string,
+    test: boolean = isTest
+  ) {
+    this.exchangeName = isTest ? 'kraken' : (exchangeName.toLowerCase() as ExchangeId)
+    this.exchangeId = exchangeId
+    this.apiKey = apiKey
+    this.secretKey = secretKey
+    this.userId = userId
+    this.userExchangeId = userExchangeId
+    this.exchange = new ccxt[this.exchangeName]({
+      apiKey: this.apiKey,
+      secret: this.secretKey,
+      enableRateLimit: true,
+    })
+  }
+  async fetchAndStoreUserExchangeData(): Promise<void> {
+    await this.fetchAndStoreTrades()
+    await this.fetchAndStoreCoinAccounts()
+  }
+
+  async fetchAndStoreTrades(): Promise<void> {
+    await prismaCli.trade.createMany({
+      // @ts-ignore
+      data: mockTrades.map((trade: CcxtTrade) => this.formatTrade(trade)),
+    })
+  }
+  async fetchAndStoreCoinAccounts(): Promise<void> {
+    await prismaCli.coinAccount.createMany({
+      data: mockCoinAccounts,
+    })
+  }
+
+  private formatTrade(trade: CcxtTrade): Trade {
+    return {
+      ...trade,
+      exchangeName: this.exchangeName,
+      fees: JSON.stringify((trade as any).fees),
+      userId: this.userId,
+      userExchangeId: this.userExchangeId,
+      order: trade.order || null,
+      fee: JSON.stringify(trade.fee),
+      info: JSON.stringify(trade.info),
+      timestamp: new Date(trade.timestamp),
+      type: trade.type || null,
+    }
+  }
+}
+
+// const CcxtService = isTest ? MockCcxtRestService : CcxtRestService
+const CcxtService = CcxtRestService
+
+export const createCcxtRestService = async (userExchangeId: string, userId: string) => {
   const userExchangeService = new UserExchangeService()
   const { key, secret, exchangeName, exchangeId } =
     await userExchangeService.getUserExchangeKeys(userExchangeId, userId)
-  return new CcxtRestService(
-    exchangeName,
-    exchangeId,
-    key,
-    secret,
-    userId,
-    userExchangeId
-  )
+  return new CcxtService(exchangeName, exchangeId, key, secret, userId, userExchangeId)
 }
+
+export default CcxtService
