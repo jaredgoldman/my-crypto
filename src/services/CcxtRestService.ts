@@ -8,6 +8,7 @@ import { CurrencyType, ExchangeCurrency, Trade } from '@prisma/client'
 import { v4 as uuid } from 'uuid'
 import mockTrades from '../mocks/trades.json'
 import mockCoinAccounts from '../mocks/coinAccounts.json'
+import { Logger } from '@src/config/logger'
 
 const isTest = env.NODE_ENV === 'test'
 
@@ -42,14 +43,22 @@ class CcxtRestService {
 
     if (!test) {
       if (!ccxt.exchanges.includes(this.exchangeName)) {
-        throw new ApiError(400, 'Invalid exchange name')
+        throw new ApiError('exchange.notSupported')
       }
     }
   }
 
-  async fetchAndStoreUserExchangeData(): Promise<void> {
-    await this.fetchAndStoreTrades()
-    await this.fetchAndStoreCoinAccounts()
+  public async fetchAndStoreUserExchangeData(): Promise<boolean> {
+    try {
+      // TODO: Implement a promise.allSettled here
+      // await this.fetchFormatAndStoreExchangeCurrencies()
+      await this.fetchAndStoreTrades()
+      await this.fetchAndStoreCoinAccounts()
+      return true
+    } catch (error) {
+      Logger.warn('userExchange.dataFetchFailed', error)
+      return false
+    }
   }
 
   private async fetchFormatAndStoreExchangeCurrencies(): Promise<void> {
@@ -73,7 +82,7 @@ class CcxtRestService {
     })
   }
 
-  async fetchAndStoreTrades(): Promise<void> {
+  async fetchAndStoreTrades(): Promise<boolean> {
     if (this.exchange.has['fetchMyTrades']) {
       let allTrades: any[] = []
       let offset = 0
@@ -88,14 +97,17 @@ class CcxtRestService {
         offset += trades.length
         await wait(100)
       }
+      if (!allTrades || !allTrades.length) return false
       const trades = allTrades.map((trade: CcxtTrade) => this.formatTrade(trade))
       await prismaCli.trade.createMany({
         // @ts-ignore
         data: trades,
         skipDuplicates: true,
       })
+      return true
     } else {
-      throw new ApiError(400, 'Exchange does not support fetching trades')
+      Logger.warn('exchange.tradesNotSupported')
+      return false
     }
   }
 
@@ -213,11 +225,21 @@ class MockCcxtRestService {
 // const CcxtService = isTest ? MockCcxtRestService : CcxtRestService
 const CcxtService = CcxtRestService
 
-export const createCcxtRestService = async (userExchangeId: string, userId: string) => {
+export const createCcxtRestService = async (
+  userExchangeId: string,
+  userId: string
+): Promise<CcxtRestService | void> => {
   const userExchangeService = new UserExchangeService()
-  const { key, secret, exchangeName, exchangeId } =
-    await userExchangeService.getUserExchangeKeys(userExchangeId, userId)
-  return new CcxtService(exchangeName, exchangeId, key, secret, userId, userExchangeId)
+
+  const userExchangeKeys = await userExchangeService.getUserExchangeKeys(
+    userExchangeId,
+    userId
+  )
+  if (userExchangeKeys) {
+    const { key, secret, exchangeName, exchangeId } = userExchangeKeys
+    return new CcxtService(exchangeName, exchangeId, key, secret, userId, userExchangeId)
+  }
+  Logger.warn('userExchange.keysNotFound', { userExchangeId, userId })
 }
 
 export default CcxtService

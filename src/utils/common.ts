@@ -7,3 +7,7 @@ export const areWeTestingWithJest = () => {
 export const wait = (ms: number) => {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
+
+export const getObjectPropFromPath = (obj: any, path: string) => {
+  return path.split('.').reduce((prev, curr) => prev && prev[curr], obj)
+}

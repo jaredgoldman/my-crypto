@@ -1,9 +1,18 @@
+import { Logger } from '../config/logger'
+import errorMessages from '../content/errorMessages.json'
+import { getObjectPropFromPath } from './common'
+
 class ApiError extends Error {
   statusCode: number
   isOperational: boolean
-  constructor(statusCode = 500, message: string, isOperational = true, stack = '') {
-    super(message)
-    this.statusCode = statusCode
+  constructor(messagePath: string, isOperational = true, stack = '') {
+    let errorData = getObjectPropFromPath(errorMessages, messagePath)
+    if (!errorData) {
+      Logger.warn(`Error message path ${messagePath} not found`)
+      errorData = { code: 500, message: 'Internal Server Error' }
+    }
+    super(errorData.message)
+    this.statusCode = errorData.code
     this.isOperational = isOperational
     if (stack) {
       this.stack = stack

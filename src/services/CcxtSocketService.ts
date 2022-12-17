@@ -3,6 +3,7 @@ import { Exchange, ExchangeId, pro } from 'ccxt'
 import ccxt from 'ccxt'
 import env from '../config/env'
 import { UserExchangeService } from './UserExchangeService'
+import { Logger } from '@src/config/logger'
 
 // TODO: clean up after socket disconnect
 const activeSocketServices = {}
@@ -40,13 +41,7 @@ export class CcxtSocketService {
         enableRateLimit: true,
       })
     } else {
-      throw new ApiError(400, `Exchange ${this.exchangeName} not supported in ccxt pro`)
-    }
-
-    if (!test) {
-      if (!ccxt.exchanges.includes(this.exchangeName)) {
-        throw new ApiError(400, 'Invalid exchange name')
-      }
+      throw new Error(`Exchange ${this.exchangeName} not supported in ccxt pro`)
     }
   }
 
@@ -63,16 +58,26 @@ export class CcxtSocketService {
   }
 }
 
-export const createCcxtSocketService = async (userExchangeId: string, userId: string) => {
+export const createCcxtSocketService = async (
+  userExchangeId: string,
+  userId: string
+): Promise<CcxtSocketService | void> => {
   const userExchangeService = new UserExchangeService()
-  const { key, secret, exchangeName, exchangeId } =
-    await userExchangeService.getUserExchangeKeys(userExchangeId, userId)
-  return new CcxtSocketService(
-    exchangeName,
-    exchangeId,
-    key,
-    secret,
-    userId,
-    userExchangeId
+  const userExchangeKeys = await userExchangeService.getUserExchangeKeys(
+    userExchangeId,
+    userId
   )
+  if (userExchangeKeys) {
+    const { key, secret, exchangeName, exchangeId } = userExchangeKeys
+    return new CcxtSocketService(
+      exchangeName,
+      exchangeId,
+      key,
+      secret,
+      userId,
+      userExchangeId
+    )
+  } else {
+    Logger.warn('userExchange.keysNotFound')
+  }
 }

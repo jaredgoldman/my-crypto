@@ -12,6 +12,7 @@ import {
 import { Exchange } from '@prisma/client'
 import { ExchangeService, ExchangeCreationParams } from '../services/ExchangeService'
 import { PaginatedResponse, Response, ResponseMessage } from '../types/api'
+import ApiError from '@src/utils/ApiError'
 
 @Route('exchanges')
 @Tags('exchange')
@@ -31,8 +32,11 @@ export class ExchangeController extends Controller {
   @Get('{id}')
   @SuccessResponse('200', 'OK')
   public async getExchange(@Path('id') id: string): Promise<Response<Exchange>> {
-    const data = await this.exchangeService.get(id)
-    return { data, message: ResponseMessage.success }
+    const exchange = await this.exchangeService.get(id)
+    if (!exchange) {
+      throw new ApiError('exchange.notFound')
+    }
+    return { data: exchange, message: ResponseMessage.success }
   }
 
   @Post()

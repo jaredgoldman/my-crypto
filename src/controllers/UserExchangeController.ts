@@ -33,6 +33,8 @@ export class UserExchangeController extends Controller {
 
   @Post()
   @SuccessResponse('201', 'OK')
+
+  // TODO: Impletment better error handling
   public async create(
     @Body() requestBody: UserExchangeCreateParams,
     @Request() request: Express.Request
@@ -48,19 +50,20 @@ export class UserExchangeController extends Controller {
         requestBody.apiSecret
       )
 
+      if (!userExchange) throw new ApiError('userExchange.createFailed')
+
       return { data: userExchange, message: ResponseMessage.success }
     } else {
-      throw new ApiError(404, 'Exchange not found')
+      throw new ApiError('exchange.notFound')
     }
   }
 
   @Post('delete')
   @SuccessResponse('201', 'OK')
-  public async delete(
-    @Query() userExchangeId: string
-  ): Promise<Response<UserExchange | undefined>> {
+  public async delete(@Query() userExchangeId: string): Promise<Response<string>> {
     const deletedUserExchange = await this.userExchangeService.delete(userExchangeId)
-    return { data: deletedUserExchange, message: ResponseMessage.success }
+    if (!deletedUserExchange) throw new ApiError('userExchange.deleteFailed')
+    return { data: 'User exchange deleted succesfully', message: ResponseMessage.success }
   }
 
   @Get()
@@ -86,6 +89,6 @@ export class UserExchangeController extends Controller {
     if (userExchange && userExchange.userId === user.sub) {
       return { data: userExchange, message: ResponseMessage.success }
     }
-    throw new ApiError(404, 'User exchange not found')
+    throw new ApiError('userExchange.notFound')
   }
 }

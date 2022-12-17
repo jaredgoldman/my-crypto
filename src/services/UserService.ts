@@ -4,6 +4,7 @@ import bcrypt from 'bcrypt'
 import ApiError from '../utils/ApiError'
 import { KeyService } from './KeyService'
 import { UserSecret } from '@prisma/client'
+import { Logger } from '../config/logger'
 
 export interface UserCreateParams {
   email: string
@@ -14,13 +15,14 @@ export interface UserCreateParams {
 export class UserService {
   private keyService = new KeyService()
 
-  async create(params: UserCreateParams): Promise<User> {
+  async create(params: UserCreateParams): Promise<User | undefined> {
     const existingUser = await prismaCli.user.findUnique({
       where: { email: params.email },
     })
 
     if (existingUser) {
-      throw new ApiError(409, 'User already exists')
+      Logger.warn('user.alreadyExists')
+      return
     }
 
     const hashedPassword = await bcrypt.hash(params.password, 10)
@@ -65,7 +67,8 @@ export class UserService {
     })
 
     if (!user) {
-      throw new ApiError(404, 'User not found')
+      Logger.warn('general.notFound')
+      return
     }
 
     const userSecret = (await prismaCli.userSecret.findUnique({
@@ -76,6 +79,7 @@ export class UserService {
     if (isPasswordValid) {
       return user
     }
+    Logger.warn('general.invalidCredentials')
   }
 
   async login(email: string, password: string): Promise<{ token: string; user: User }> {
@@ -84,7 +88,7 @@ export class UserService {
     })
 
     if (!maybeUser) {
-      throw new ApiError(404, 'User not found')
+      throw new ApiError('user.exists')
     }
 
     const hashedPassword = await prismaCli.userSecret.findUnique({
@@ -103,10 +107,10 @@ export class UserService {
         const token = this.keyService.generateSessionToken(user)
         return { token, user }
       } else {
-        throw new ApiError(401, 'Invalid email or password')
+        throw new ApiError('general.invalidCredentials')
       }
     } else {
-      throw new ApiError(401, 'Invalid email or password')
+      throw new ApiError('general.invalidCredentials')
     }
   }
 

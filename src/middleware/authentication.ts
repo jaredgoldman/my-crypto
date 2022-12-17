@@ -3,6 +3,7 @@ import * as express from 'express'
 import ApiError from '../utils/ApiError'
 import { UserService } from '../services/UserService'
 import { KeyService } from '../services/KeyService'
+import { Logger } from '@src/config/logger'
 
 export const expressAuthentication = async (
   request: express.Request,
@@ -15,25 +16,29 @@ export const expressAuthentication = async (
     request.body.token || request.query.token || request.headers['authorization']
 
   if (securityName === SecurityName.jwt) {
-    return await keyService.verifyJwt(token, env.JWT_SIGNING_SALT)
+    const decoded = await keyService.verifyJwt(token, env.JWT_SIGNING_SALT)
+    if (!decoded) {
+      Logger.warn('authentication.jwt')
+      throw new ApiError('general.unauthorized')
+    }
   }
 
   if (securityName === SecurityName.basic) {
     const { email, password } = getBasicAuth(request)
     const user = await userService.authenticate(email, password)
 
-    if (!user) {
-      throw new ApiError(401, 'Unauthorized')
+    if (user) {
+      return user
     }
-    return user
   }
-  throw new ApiError(401, 'Unauthorized')
+  Logger.warn('authentication.basic')
+  throw new ApiError('general.unauthorized')
 }
 
 const getBasicAuth = (request: express.Request): { email: string; password: string } => {
   const base64UserPass = request.headers.authorization?.replace('Basic ', '')
   if (!base64UserPass) {
-    throw new ApiError(401, 'Unauthorized')
+    throw new ApiError('general.unauthorized')
   }
   const [email, password] = Buffer.from(base64UserPass, 'base64')
     .toString('ascii')

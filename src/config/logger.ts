@@ -1,6 +1,7 @@
 import pino from 'pino'
 import pinoHttp from 'pino-http'
-import { areWeTestingWithJest } from '../utils/common'
+import errorMessages from '../content/errorMessages.json'
+import { areWeTestingWithJest, getObjectPropFromPath } from '../utils/common'
 
 const testPino = pino({ level: 'silent' })
 
@@ -41,17 +42,25 @@ const httpLogger = pinoHttp({
 })
 
 export class Logger {
-  public static info(message: string, data?: any) {
-    pinoLogger.info(message, data)
+  public static info(messagePath: string, data?: any) {
+    pinoLogger.info(this.getErrorMessage(messagePath), data)
   }
-  public static warn(message: string, data?: any) {
-    pinoLogger.warn(message, data)
+  public static warn(messagePath: string, data?: any) {
+    pinoLogger.warn(this.getErrorMessage(messagePath), data)
   }
-  public static error(message: string, data?: any) {
-    pinoLogger.error(message, data)
+  public static error(messagePath: string, data?: any) {
+    pinoLogger.error(this.getErrorMessage(messagePath), data)
   }
-  public static debug(message: string, data?: any) {
-    pinoLogger.debug(message, data)
+  public static debug(messagePath: string, data?: any) {
+    pinoLogger.debug(this.getErrorMessage(messagePath), data)
+  }
+
+  private static getErrorMessage(messagePath: string) {
+    let message = getObjectPropFromPath(errorMessages, messagePath)?.message
+    if (message) {
+      return message
+    }
+    return 'Incorrect message path'
   }
 }
 

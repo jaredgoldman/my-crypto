@@ -28,6 +28,11 @@ export class UserController extends Controller {
     @Body() requestBody: UserCreateParams
   ): Promise<Response<{ user: User; token: string }>> {
     const user = await this.userService.create(requestBody)
+
+    if (!user) {
+      throw new ApiError('user.exists')
+    }
+
     const token = this.keyService.generateSessionToken(user)
     return { data: { user, token }, message: ResponseMessage.success }
   }
@@ -43,7 +48,7 @@ export class UserController extends Controller {
 
     // TODO: Check if user is admin
     if (user.id !== id) {
-      throw new ApiError(403, 'Forbidden')
+      throw new ApiError('general.forbidden')
     }
     const userData = await this.userService.delete(id)
     return { data: userData, message: ResponseMessage.success }
@@ -56,7 +61,7 @@ export class UserController extends Controller {
     const user = (request as any).user as User
 
     if (user.id !== id) {
-      throw new ApiError(403, 'Forbidden')
+      throw new ApiError('general.forbidden')
     }
 
     const data = await this.userService.get(id)
@@ -64,7 +69,7 @@ export class UserController extends Controller {
     if (data) {
       return { data, message: ResponseMessage.success }
     }
-    throw new ApiError(404, 'User not found')
+    throw new ApiError('user.notFound')
   }
 
   @Post('login')

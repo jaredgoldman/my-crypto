@@ -1,10 +1,10 @@
 import { Trade } from '@prisma/client'
-import ApiError from '../utils/ApiError'
 import fs from 'fs'
 import converter from 'json-2-csv'
+import { Logger } from '@src/config/logger'
 
 export class CsvService {
-  public generateTradeCsv(trades: Trade[]) {
+  public generateTradeCsv(trades: Trade[]): boolean {
     try {
       if (!fs.existsSync('csv')) {
         fs.mkdirSync('csv')
@@ -17,8 +17,10 @@ export class CsvService {
           fs.writeFileSync('csv/trades.csv', csv)
         }
       })
+      return true
     } catch (err) {
-      throw new ApiError(500, 'Failed to export trades.')
+      Logger.error('csv.general', err)
+      return false
     }
   }
 }

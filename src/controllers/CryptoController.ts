@@ -3,6 +3,7 @@ import { createCcxtRestService } from '../services/CcxtRestService'
 import { createCcxtSocketService } from '../services/CcxtSocketService'
 import { UserExchangeService } from '../services/UserExchangeService'
 import { User } from '@prisma/client'
+import ApiError from '../utils/ApiError'
 
 @Security('basic')
 @Tags('crypto')
@@ -18,6 +19,8 @@ export class CcxtController extends Controller {
   ) {
     const user = (request as any).user as User
     const CcxtSocketService = await createCcxtSocketService(userExchangeId, user.id)
+    if (!CcxtSocketService) throw new ApiError('general.serverError')
+    // TDOD: Implelemtn socket output for ticker data
     CcxtSocketService.watchTicker(symbol)
     return { data: 'Watching ticker', message: 'success' }
   }
@@ -28,8 +31,9 @@ export class CcxtController extends Controller {
     @Path() userExchangeId: string
   ) {
     const user = (request as any).user as User
-    const CcxtRestService = await createCcxtRestService(userExchangeId, user.id)
-    await CcxtRestService.fetchAndStoreUserExchangeData()
+    const ccxtRestService = await createCcxtRestService(userExchangeId, user.id)
+    if (!ccxtRestService) throw new ApiError('general.serverError')
+    await ccxtRestService.fetchAndStoreUserExchangeData()
     return { data: 'Refreshed user exchange data', message: 'success' }
   }
 }

@@ -1,0 +1,52 @@
+{
+  "csv": {
+    "general": { "message": "csv error", "code": 500 },
+    "export": { "message": "csv export error", "code": 500 }
+  },
+  "exchange": {
+    "notFound": { "message": "exchange not found", "code": 404 },
+    "notSupported": { "message": "exchange not supported", "code": 400 },
+    "invalidName": { "message": "invalid exchange name", "code": 400 }
+  },
+  "health": {},
+  "security": {},
+  "user": {
+    "exists": { "message": "user exists", "code": 409 },
+    "notFound": { "message": "user does not exist", "code": 404 }
+  },
+  "userExchange": {
+    "notFound": { "message": "user exchange not found", "code": 409 },
+    "createFailed": { "message": "user exchange creation failed", "code": 500 },
+    "general": { "message": "user exchange error", "code": 500 },
+    "tradesNotSupported": {
+      "message": "this exchange does not support trades",
+      "code": 400
+    },
+    "dataFetchFailed": {
+      "message": "Error fetching and storing user exchange data",
+      "code": 500
+    },
+    "keysNotFound": {
+      "message": "user exchange keys not found",
+      "code": 404
+    }
+  },
+  "general": {
+    "invalid": { "message": "invalid request", "code": 400 },
+    "notFound": { "message": "not found", "code": 404 },
+    "serverError": { "message": "server error", "code": 500 },
+    "forbidden": { "message": "forbidden", "code": 403 },
+    "invalidCredentials": { "message": "invalid email or password", "code": 401 },
+    "unauthorized": { "message": "unauthorized", "code": 401 }
+  },
+  "ccxt": {
+    "createFailed": { "message": "ccxt creation failed", "code": 500 }
+  },
+  "jwt": {
+    "verifyFailed": { "message": "jwt verify failed", "code": 401 }
+  },
+  "authentication": {
+    "basic": { "message": "basic authentication failed", "code": 401 },
+    "jwt": { "message": "jwt authentication failed", "code": 401 }
+  }
+}

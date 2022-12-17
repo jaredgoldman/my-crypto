@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { User } from '@prisma/client'
 import { createCipheriv, createDecipheriv, randomBytes } from 'node:crypto'
-import ApiError from '../utils/ApiError'
+import { Logger } from '../config/logger'
 
 interface HashedKey {
   iv: string
@@ -54,11 +54,12 @@ export class KeyService {
     return decrpyted.toString()
   }
 
-  public verifyJwt(token: string, secret: string): Promise<string | object> {
+  public verifyJwt(token: string, secret: string): Promise<string | void> {
     return new Promise((resolve, reject) => {
       jwt.verify(token, secret, function (err: any, decoded: any) {
         if (err) {
-          reject(new ApiError(401, 'Unauthorized', true, err))
+          Logger.error('jwt.verifyFailed', err)
+          reject()
         } else {
           resolve(decoded)
         }
