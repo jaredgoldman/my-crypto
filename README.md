@@ -1,6 +1,6 @@
 # my-crypto
 
-A crypto untility service leveraging [tsoa](https://tsoa-community.github.io/docs/), [CCXT](https://github.com/ccxt/ccxt) and [Prisma](https://www.prisma.io/). Built to releive the pain of managing user data from multiple exchanges/brdokerages. 
+A crypto untility service leveraging [tsoa](https://tsoa-community.github.io/docs/), [CCXT](https://github.com/ccxt/ccxt) and [Prisma](https://www.prisma.io/). Built to releive the pain of managing user data from multiple exchanges/brokerages. 
 
 ## Features
 
